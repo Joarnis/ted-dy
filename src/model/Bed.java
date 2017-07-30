@@ -25,7 +25,7 @@ public class Bed implements Serializable {
 
 	private String type;
 
-	//uni-directional many-to-one association to Listing
+	//bi-directional many-to-one association to Listing
 	@ManyToOne
 	@JoinColumn(name="listings_id")
 	private Listing listing;

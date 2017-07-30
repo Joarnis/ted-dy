@@ -23,7 +23,13 @@ public class Calendar implements Serializable {
 
 	//bi-directional many-to-one association to Listing
 	@ManyToOne
+	@JoinColumn(name="listings_id")
 	private Listing listing;
+
+	//bi-directional many-to-one association to User
+	@ManyToOne
+	@JoinColumn(name="guest_id")
+	private User user;
 
 	public Calendar() {
 	}
@@ -58,6 +64,14 @@ public class Calendar implements Serializable {
 
 	public void setListing(Listing listing) {
 		this.listing = listing;
+	}
+
+	public User getUser() {
+		return this.user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

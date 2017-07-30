@@ -12,19 +12,19 @@ public class CalendarPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="listing_id", insertable=false, updatable=false)
-	private int listingId;
+	@Column(name="listings_id", insertable=false, updatable=false)
+	private int listingsId;
 
 	@Temporal(TemporalType.DATE)
 	private java.util.Date date;
 
 	public CalendarPK() {
 	}
-	public int getListingId() {
-		return this.listingId;
+	public int getListingsId() {
+		return this.listingsId;
 	}
-	public void setListingId(int listingId) {
-		this.listingId = listingId;
+	public void setListingsId(int listingsId) {
+		this.listingsId = listingsId;
 	}
 	public java.util.Date getDate() {
 		return this.date;
@@ -42,14 +42,14 @@ public class CalendarPK implements Serializable {
 		}
 		CalendarPK castOther = (CalendarPK)other;
 		return 
-			(this.listingId == castOther.listingId)
+			(this.listingsId == castOther.listingsId)
 			&& this.date.equals(castOther.date);
 	}
 
 	public int hashCode() {
 		final int prime = 31;
 		int hash = 17;
-		hash = hash * prime + this.listingId;
+		hash = hash * prime + this.listingsId;
 		hash = hash * prime + this.date.hashCode();
 		
 		return hash;

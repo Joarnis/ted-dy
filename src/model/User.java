@@ -39,6 +39,10 @@ public class User implements Serializable {
 
 	private String username;
 
+	//bi-directional many-to-one association to Calendar
+	@OneToMany(mappedBy="user")
+	private List<Calendar> calendars;
+
 	//bi-directional many-to-one association to Listing
 	@OneToMany(mappedBy="user")
 	private List<Listing> listings;
@@ -120,6 +124,28 @@ public class User implements Serializable {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public List<Calendar> getCalendars() {
+		return this.calendars;
+	}
+
+	public void setCalendars(List<Calendar> calendars) {
+		this.calendars = calendars;
+	}
+
+	public Calendar addCalendar(Calendar calendar) {
+		getCalendars().add(calendar);
+		calendar.setUser(this);
+
+		return calendar;
+	}
+
+	public Calendar removeCalendar(Calendar calendar) {
+		getCalendars().remove(calendar);
+		calendar.setUser(null);
+
+		return calendar;
 	}
 
 	public List<Listing> getListings() {

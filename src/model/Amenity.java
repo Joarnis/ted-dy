@@ -15,7 +15,8 @@ public class Amenity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int id;
+	@Column(name="listings_id")
+	private int listingsId;
 
 	@Column(name="air_conditioning")
 	private byte airConditioning;
@@ -73,18 +74,18 @@ public class Amenity implements Serializable {
 
 	//bi-directional one-to-one association to Listing
 	@OneToOne
-	@JoinColumn(name="id", referencedColumnName="amenities_id")
+	@JoinColumn(name="listings_id")
 	private Listing listing;
 
 	public Amenity() {
 	}
 
-	public int getId() {
-		return this.id;
+	public int getListingsId() {
+		return this.listingsId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setListingsId(int listingsId) {
+		this.listingsId = listingsId;
 	}
 
 	public byte getAirConditioning() {

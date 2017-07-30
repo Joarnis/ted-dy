@@ -41,6 +41,10 @@ public class Listing implements Serializable {
 	@OneToOne(mappedBy="listing")
 	private Amenity amenity;
 
+	//bi-directional many-to-one association to Bed
+	@OneToMany(mappedBy="listing")
+	private List<Bed> beds;
+
 	//bi-directional many-to-one association to Calendar
 	@OneToMany(mappedBy="listing")
 	private List<Calendar> calendars;
@@ -135,6 +139,28 @@ public class Listing implements Serializable {
 
 	public void setAmenity(Amenity amenity) {
 		this.amenity = amenity;
+	}
+
+	public List<Bed> getBeds() {
+		return this.beds;
+	}
+
+	public void setBeds(List<Bed> beds) {
+		this.beds = beds;
+	}
+
+	public Bed addBed(Bed bed) {
+		getBeds().add(bed);
+		bed.setListing(this);
+
+		return bed;
+	}
+
+	public Bed removeBed(Bed bed) {
+		getBeds().remove(bed);
+		bed.setListing(null);
+
+		return bed;
 	}
 
 	public List<Calendar> getCalendars() {

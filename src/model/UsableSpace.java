@@ -15,7 +15,8 @@ public class UsableSpace implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int id;
+	@Column(name="listings_id")
+	private int listingsId;
 
 	private byte elevator;
 
@@ -40,18 +41,18 @@ public class UsableSpace implements Serializable {
 
 	//bi-directional one-to-one association to Listing
 	@OneToOne
-	@JoinColumn(name="id", referencedColumnName="usable_spaces_id")
+	@JoinColumn(name="listings_id")
 	private Listing listing;
 
 	public UsableSpace() {
 	}
 
-	public int getId() {
-		return this.id;
+	public int getListingsId() {
+		return this.listingsId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setListingsId(int listingsId) {
+		this.listingsId = listingsId;
 	}
 
 	public byte getElevator() {
