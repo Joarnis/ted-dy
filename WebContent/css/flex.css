@@ -1,0 +1,25 @@
+.flexcontainer{
+	display: flex;
+	flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flexleft{
+	display: flex;
+	flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.flexright{
+	display: flex;
+	flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+
+.barbutton{
+	margin: 5px 20px 5px 20px;
+}
