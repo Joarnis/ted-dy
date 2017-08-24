@@ -14,7 +14,7 @@ public class NavBean {
 	
 	public NavBean() {
 		reg_edit = "Register";
-		login_logout = "Logout";
+		login_logout = "Login";
 		hellomessage = "";
 	}
 	
