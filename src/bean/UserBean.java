@@ -9,6 +9,9 @@ import javax.persistence.Column;
 @ManagedBean(name="user")
 @SessionScoped
 public class UserBean {
+	
+	private boolean isloggedin;
+	private final String test = "Kon";
 	private int id;
 	private String email;
 	private String firstName;
@@ -19,10 +22,12 @@ public class UserBean {
 	private String phoneNum;
 	private String username;
 	
+	private User current;
+	
 	public void registerUser()
 	{
 		User user = new User();
-		
+
 		user.setFirstName(firstName);
 		user.setEmail(email);
 		user.setIsHost(isHost);
@@ -32,6 +37,14 @@ public class UserBean {
 		user.setUsername(username);
 		//dao goes here
 	
+	}
+	
+	public boolean isLoggedIn() {
+        return current != null;
+    } 
+	
+	public String getTest(){
+		return test;
 	}
 
 }
