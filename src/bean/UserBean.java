@@ -10,8 +10,6 @@ import javax.persistence.Column;
 @SessionScoped
 public class UserBean {
 	
-	private boolean isloggedin;
-	private final String test = "Kon";
 	private int id;
 	private String email;
 	private String firstName;
