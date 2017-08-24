@@ -8,22 +8,22 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class NavBean {
 
-	private String sign_edit;
+	private String reg_edit;
 	private String login_logout;
 	private String hellomessage;
 	
 	public NavBean() {
-		sign_edit = "Sign up";
+		reg_edit = "Register";
 		login_logout = "Logout";
 		hellomessage = "";
 	}
 	
-	public void setSign_edit(String sign_edit) {
-		this.sign_edit = sign_edit;
+	public void setRed_edit(String reg_edit) {
+		this.reg_edit = reg_edit;
 	}
 	
-	public String getSign_edit(){
-		return sign_edit;
+	public String getReg_edit(){
+		return reg_edit;
 	}
 	
 	public void setLogin_logout(String login_logout) {
@@ -35,7 +35,7 @@ public class NavBean {
 	}
 	
 	public void setHellomessage(String name) {
-		this.hellomessage = "Welcome" + name + "!";
+		this.hellomessage = "Welcome " + name + "!";
 	}
 	
 	public void emptyHellomessage() {
@@ -44,6 +44,11 @@ public class NavBean {
 	
 	public String getHellomessage() {
 		return hellomessage;
+	}
+	
+	public String logoclick() {
+		setHellomessage("yooos");
+		return "html/register.xhtml";
 	}
 	
 }

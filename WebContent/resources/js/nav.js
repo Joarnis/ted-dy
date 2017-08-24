@@ -11,6 +11,6 @@ function onSignIn(){
 }
 
 function test(){
-	var el =document.getElementById("signin1");
+	var el =document.getElementById("signin");
 	el.innerHTML = "New1";
 }

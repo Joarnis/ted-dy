@@ -8,17 +8,20 @@
 <h:body>
 	<ui:composition>
 		<div class="flexcontainer">
-			<div>Logo is here </div>
+		<div>Logo is here</div>
 			<div class="flexright">
 				<div id="hello">#{nav.hellomessage}</div>
-				<div class="barbutton">
-					<button id="signin" onclick = "test()" >#{nav.sign_edit}</button>
-				</div>
-				<div class="barbutton">
-					<button>#{nav.login_logout}</button>
+				<div class="flexright">
+					<h:form>
+						<h:commandButton class="barbutton" value="#{nav.reg_edit}" action="html/register.xhtml" />
+					</h:form>
+					<h:form>
+						<h:commandButton class="barbutton" value="#{nav.login_logout}" action="html/register.xhtml" />
+					</h:form>
 				</div>
 			</div>
 		</div>
+		
 	</ui:composition>
 </h:body>
 </html>
