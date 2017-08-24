@@ -40,9 +40,4 @@ public class UserBean {
 	public boolean isLoggedIn() {
         return current != null;
     } 
-	
-	public String getTest(){
-		return test;
-	}
-
 }
