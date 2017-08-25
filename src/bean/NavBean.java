@@ -18,7 +18,7 @@ public class NavBean {
 		hellomessage = "";
 	}
 	
-	public void setRed_edit(String reg_edit) {
+	public void setReg_edit(String reg_edit) {
 		this.reg_edit = reg_edit;
 	}
 	
@@ -47,8 +47,8 @@ public class NavBean {
 	}
 	
 	public String logoclick() {
-		setHellomessage("yooos");
-		return "html/register.xhtml";
+		setReg_edit("NE");
+		return "index.xhtml";
 	}
 	
 }
