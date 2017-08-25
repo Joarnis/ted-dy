@@ -1,6 +1,6 @@
 /* here is the css for the mainpage excluding the navbar */ 
 
-.searchbody {
+.confiletters {
         font-family: 'Lato', sans-serif;
 }
 
@@ -45,7 +45,6 @@ input[type="text"]:focus {
   outline: none;
 }
 
-
 .style-4 input[type="text"] {
   padding: 10px;
   border: none;
@@ -55,14 +54,4 @@ input[type="text"]:focus {
 .style-4 input[type="text"]:focus,
 .style-4 input[type="text"].focus {
   border-bottom: solid 2px #969696;
-}
-
-.style-2 input[type="text"] {
-  padding: 10px;
-  border: solid 5px #c9c9c9;
-  transition: border 0.3s;
-}
-.style-2 input[type="text"]:focus,
-.style-2 input[type="text"].focus {
-  border: solid 5px #969696;
 }
