@@ -9,10 +9,39 @@
     <h:outputStylesheet name="navbar.css" library="css"/>
     <h:outputStylesheet name="mainpage.css" library="css"/>
     <h:outputScript library="js" name="nav.js" />
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> 
+    </link>
 </h:head>
 <h:body>
 	<ui:include src="html/navbar.xhtml" />
-	<h:inputText pt:placeholder="search" />
+	<div class="searchbody">
+		<h:form>
+        	<h3>Take a break.</h3>
+         	<h:inputText placeholder="Pick your destination"/>
+    	</h:form>
+    </div>
+    
+    <div id="main">
+    	<div class="container">
+    		<section>
+        	<h2>Underline style</h2>
+        	<ul class="input-list style-4 clearfix">
+      		<h:inputText type="text" placeholder="Pick your destination"/>
+        </ul>
+        </section>
+      	
+      	
+    	<section>
+        	<h2>ISOS KALITERO</h2>
+        	<ul class="input-list style-2 clearfix">
+      		<h:inputText id="listing_place" type="text" placeholder="Pick your destination"/>
+        </ul>
+        </section>
+      	</div>
+      	DEN KSERW AN THA DOULEUOUN ME H:INPUTTEXT GIATI KANONIKA EINAI GIA INPUT TYPE:TEXT
+      	<br></br>
+      	PREPEI NA SIZITISOUME KAI TO XRWMA
+      	</div>
 	
 </h:body>
 </html>

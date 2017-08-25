@@ -1,2 +1,70 @@
 /* here is the css for the mainpage excluding the navbar */ 
 
+.searchbody {
+        font-family: 'Lato', sans-serif;
+}
+
+
+
+#wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#main {
+  background-color: #fff;
+  padding: 30px 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+/* sections */
+section {
+  margin-bottom: 60px;
+  padding: 30px;
+  background-color: #99e6ff;
+}
+section:last-child {
+  margin-bottom: 0;
+}
+
+input[type="text"] {
+  display: block;
+  margin: 0;
+  width: 70%;
+  font-family: sans-serif;
+  font-size: 18px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+}
+input[type="text"]:focus {
+  outline: none;
+}
+
+
+.style-4 input[type="text"] {
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px #c9c9c9;
+  transition: border 0.3s;
+}
+.style-4 input[type="text"]:focus,
+.style-4 input[type="text"].focus {
+  border-bottom: solid 2px #969696;
+}
+
+.style-2 input[type="text"] {
+  padding: 10px;
+  border: solid 5px #c9c9c9;
+  transition: border 0.3s;
+}
+.style-2 input[type="text"]:focus,
+.style-2 input[type="text"].focus {
+  border: solid 5px #969696;
+}
