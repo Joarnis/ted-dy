@@ -18,7 +18,7 @@ public class NavBean {
 		hellomessage = "";
 	}
 	
-	public void setRed_edit(String reg_edit) {
+	public void setReg_edit(String reg_edit) {
 		this.reg_edit = reg_edit;
 	}
 	
