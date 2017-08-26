@@ -76,6 +76,7 @@ public class NavBean {
 	public String login() {
 		/*do necessary actions*/
 		login_logout = "Logout";
+		reg_edit = "Edit profile";
 		return "/index?faces-redirect=true";
 	}
 	

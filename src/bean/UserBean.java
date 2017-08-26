@@ -1,6 +1,8 @@
 package bean;
 
 import model.User;
+import dao.UserDAO;
+import javax.faces.context.FacesContext;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
@@ -22,8 +24,12 @@ public class UserBean {
 	
 	private User current;
 	
+	@ManagedProperty(value="#{userDAO}")
+    private UserDAO userDAO;
+	
 	public void registerUser()
 	{
+		FacesContext context = FacesContext.getCurrentInstance();
 		User user = new User();
 
 		user.setFirstName(firstName);

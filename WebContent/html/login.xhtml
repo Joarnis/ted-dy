@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>Please Login</title>
 	<link href="../resources/css/navbar.css" rel="stylesheet"> </link>
@@ -20,15 +21,13 @@
 
     		<div class="loginflex">
       			<h:outputLabel for="uname" styleClass="login-field"><b>Username</b></h:outputLabel>
-      			<h:inputText id="uname" class="login-field" type="text" value="YO"/>
+      			<h:inputText id="uname" class="login-field" value="#{user.username}" required="true"/>
 
       			<h:outputLabel for="pass" styleClass="login-field"><b>Password</b></h:outputLabel>
-      			<h:inputSecret id="pass" styleClass="login-field" value="#{user.password}"/>
+      			<h:inputSecret id="pass" styleClass="login-field" value="#{user.password}" required="true"/>
 
-     			<h:commandButton styleClass="genbutton" value="Login" action="#{nav.login()}">
-     				<!-- <f:ajax/> -->
-     				</h:commandButton>
-      			<h:commandButton styleClass="genbutton" value="Cancel" action=".../index.xhtml?faces-redirect=true"/>
+     			<h:commandButton styleClass="genbutton" value="Login" action="#{nav.login()}"/>
+      			<h:commandButton styleClass="genbutton" value="Cancel" action="./index?faces-redirect=true"/>
     		</div>
   		</h:form>
 	</div>
