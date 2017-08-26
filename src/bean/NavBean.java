@@ -58,25 +58,25 @@ public class NavBean {
 	
 	public String logoclick() {
 		setReg_edit("NE");
-		return "index.xhtml";
+		return "/index";
 	}
 	
 	public String login_logout_clicked() {
 		if (login_logout.equals("Login")){
 			/*no one is logged in*/
-			return "html/login.xhtml";
+			return "html/login?faces-redirect=true";
 		}
 		else {
 			
 		}
 		
-		return "index.html";
+		return "/index?faces-redirect=true";
 	}
 	
 	public String login() {
 		/*do necessary actions*/
 		login_logout = "Logout";
-		return "../index.xhtml?faces-redirect=true";
+		return "/index?faces-redirect=true";
 	}
 	
 }

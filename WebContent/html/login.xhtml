@@ -2,11 +2,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
-<head>
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
 	<title>Please Login</title>
 	<link href="../resources/css/navbar.css" rel="stylesheet"> </link>
-</head>
+</h:head>
 <h:body>
 	<ui:include src="navbar.xhtml" />
 	
@@ -19,13 +20,15 @@
 
     		<div class="loginflex">
       			<h:outputLabel for="uname" styleClass="login-field"><b>Username</b></h:outputLabel>
-      			<h:inputText id="uname" class="login-field" type="text" value="YO" required="true"/>
+      			<h:inputText id="uname" class="login-field" type="text" value="YO"/>
 
       			<h:outputLabel for="pass" styleClass="login-field"><b>Password</b></h:outputLabel>
-      			<h:inputSecret id="pass" styleClass="login-field" value="yo2" required="true"/>
+      			<h:inputSecret id="pass" styleClass="login-field" value="#{user.password}"/>
 
-     			<h:commandButton styleClass="genbutton" value="Login" action="#{nav.login()}"/>
-      			<h:commandButton styleClass="genbutton" value="Cancel" action="../faces/index.xhtml"/>
+     			<h:commandButton styleClass="genbutton" value="Login" action="#{nav.login()}">
+     				<!-- <f:ajax/> -->
+     				</h:commandButton>
+      			<h:commandButton styleClass="genbutton" value="Cancel" action=".../index.xhtml?faces-redirect=true"/>
     		</div>
   		</h:form>
 	</div>

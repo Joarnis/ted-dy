@@ -16,7 +16,7 @@ public class UserBean {
 	private byte isHost;
 	private byte isVerified;
 	private String lastName;
-	private String passhash;
+	private String password;
 	private String phoneNum;
 	private String username;
 	
@@ -40,4 +40,12 @@ public class UserBean {
 	public boolean isLoggedIn() {
         return current != null;
     } 
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public String getPassword() {
+		return this.password;
+	}
 }
