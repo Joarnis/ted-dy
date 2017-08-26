@@ -1,5 +1,9 @@
 /* here is the css for the mainpage excluding the navbar */ 
 
+body {
+	 background-image: url("../img/Acropolis.jpg");
+}
+
 .confiletters {
         font-family: 'Lato', sans-serif;
 }
@@ -25,13 +29,14 @@
 section {
   margin-bottom: 60px;
   padding: 30px;
-  background-color: #99e6ff;
+  background-color: #ff8080;
 }
 section:last-child {
   margin-bottom: 0;
 }
 
-input[type="text"] {
+/*mlk koropi kanta class auta gt epireazoun ta panta*/
+/* input[type="text"] {
   display: block;
   margin: 0;
   width: 70%;
@@ -40,7 +45,7 @@ input[type="text"] {
   appearance: none;
   box-shadow: none;
   border-radius: none;
-}
+} */
 input[type="text"]:focus {
   outline: none;
 }

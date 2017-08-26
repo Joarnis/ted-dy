@@ -2,26 +2,53 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 </h:head>
 <h:body>
-	<ui:composition>
-		<div class="flexcontainer">
-		<div>Logo is here</div>
+<ui:composition>
+	<div class="flexcontainer">
+	<div>Logo is here</div>
+		<div class="flexright">
+			<div id="hello">#{nav.hellomessage}</div>
 			<div class="flexright">
-				<div id="hello">#{nav.hellomessage}</div>
-				<div class="flexright">
-					<h:form>
-						<h:commandButton class="barbutton" value="#{nav.reg_edit}" action="html/register.xhtml" />
-					</h:form>
-					<h:form>
-						<h:commandButton class="barbutton" value="#{nav.login_logout}" action="html/login.xhtml" />
-					</h:form>
-				</div>
+				<h:form>
+					<h:commandButton class="genbutton" value="#{nav.reg_edit}" action="html/register.xhtml" />
+				</h:form>
+				<h:form>
+					<h:commandButton class="genbutton" value="#{nav.login_logout}" action="#{nav.login()}">
+					</h:commandButton>
+				</h:form>
+				<button onclick="document.getElementById('login').style.display='block'">#{nav.login_logout}</button>
 			</div>
 		</div>
+	</div>
+	<div id="login" class="login">
+		<!-- <span onclick="document.getElementById('login').style.display='none'"
+			class="close" title="Close Modal">&times;</span> -->
+
+ 		<!-- Modal Content -->
+  		<h:form styleClass="login-form animate">
+
+    		<div class="loginflex">
+      			<h:outputLabel for="uname" styleClass="login-field"><b>Username</b></h:outputLabel>
+      			<h:inputText id="uname" class="login-field" type="text" placeholder="Enter Username" required="true"/>
+
+      			<h:outputLabel for="pass" styleClass="login-field"><b>Password</b></h:outputLabel>
+      			<h:inputSecret id="pass" styleClass="login-field" required="true"/>
+
+     			<h:commandButton styleClass="genbutton" value="Login" action="#{nav.login()}"/>
+      			<!--<span>Remember me<input type="checkbox" checked="checked"/></span>
+    	 			</div>
+
+    		<div class="loginflex" style="background-color:#f1f1f1"> -->
+      			<button class="genbutton" type="button" onclick="document.getElementById('login').style.display='none'" >Cancel</button>
+      			<!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
+    		</div>
+  		</h:form>
+	</div>
 		
-	</ui:composition>
+</ui:composition>
 </h:body>
 </html>

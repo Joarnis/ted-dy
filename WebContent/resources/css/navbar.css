@@ -1,5 +1,6 @@
-.flexcontainer{
-	background-color: #99e6ff;
+.flexcontainer {
+	background-color: rgb(89, 89, 89, 0.7);
+	/* background-color: #99e6ff; */
 	display: flex;
 	flex-direction: row;
     flex-wrap: nowrap;
@@ -7,7 +8,7 @@
     align-items: center;
 }
 
-.flexleft{
+.flexleft {
 	display: flex;
 	flex-direction: row;
     flex-wrap: nowrap;
@@ -15,7 +16,7 @@
     align-items: center;
 }
 
-.flexright{
+.flexright {
 	display: flex;
 	flex-direction: row;
     flex-wrap: nowrap;
@@ -23,17 +24,37 @@
     align-items: center;
 }
 
-.barbutton{
-	background-color: white;
-    color: #99e6ff;
+.genbutton {
+	/* background-color: inherit; */
+	background-color: rgb(89, 89, 89, 1);
+    color: white;
     padding: 14px 25px;
     margin: 8px;
     border: none;
     cursor: pointer;
-} 
+}
 
- /* The Modal (background) */
-.modal {
+.genbutton:hover {
+	background-color: rgb(89, 89, 89, 0.4); /*white the opacity of 0.4*/
+}
+
+.change_gen:hover {
+	background-color: white;
+	color: #ff8080;
+}
+
+.loginflex {
+	/* background:rgba(89, 89, 89, 0.3); */
+	/* background-color: #99e6ff; */
+	display: flex;
+	flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+ /* Background of login */
+.login {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -47,12 +68,16 @@
     padding-top: 60px;
 }
 
-/* Modal Content/Box */
-.modal-content {
-    background-color: #fefefe;
+/* Style of the form */
+.login-form {
+    background-color: rgba(254, 254, 254, 0.3);
     margin: 5px auto; /* 15% from the top and centered */
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 40%; /* Could be more or less, depending on screen size */
+}
+
+.login-field {
+	height: 30px;
 }
 
 /* The Close Button */

@@ -11,11 +11,13 @@ public class NavBean {
 	private String reg_edit;
 	private String login_logout;
 	private String hellomessage;
+	private String login_visibility;
 	
 	public NavBean() {
 		reg_edit = "Register";
 		login_logout = "Login";
 		hellomessage = "";
+		login_visibility = "none";
 	}
 	
 	public void setReg_edit(String reg_edit) {
@@ -46,9 +48,35 @@ public class NavBean {
 		return hellomessage;
 	}
 	
+	public void setLogin_visibility(String visibility) {
+		this.login_visibility = visibility;
+	}
+	
+	public String getLogin_visibility() {
+		return login_visibility;
+	}
+	
 	public String logoclick() {
 		setReg_edit("NE");
 		return "index.xhtml";
+	}
+	
+	public String login_logout_clicked() {
+		if (login_logout.equals("Login")){
+			/*no one is logged in*/
+			setLogin_visibility("block");
+		}
+		else {
+			
+		}
+		
+		return "index.html";
+	}
+	
+	public String login() {
+		/*do necessary actions*/
+		login_logout = "Logout";
+		return "html/index.xhtml";
 	}
 	
 }
