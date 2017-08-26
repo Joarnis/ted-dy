@@ -64,7 +64,7 @@ public class NavBean {
 	public String login_logout_clicked() {
 		if (login_logout.equals("Login")){
 			/*no one is logged in*/
-			setLogin_visibility("block");
+			return "html/login.xhtml";
 		}
 		else {
 			
@@ -76,7 +76,7 @@ public class NavBean {
 	public String login() {
 		/*do necessary actions*/
 		login_logout = "Logout";
-		return "html/index.xhtml";
+		return "../index.xhtml?faces-redirect=true";
 	}
 	
 }

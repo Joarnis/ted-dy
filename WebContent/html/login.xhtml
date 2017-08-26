@@ -4,11 +4,30 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html">
 <head>
-	<title>Peos</title>
+	<title>Please Login</title>
 	<link href="../resources/css/navbar.css" rel="stylesheet"> </link>
 </head>
 <h:body>
 	<ui:include src="navbar.xhtml" />
-	<p>YO</p>
+	
+	<div id="login" class="login">
+		<!-- <span onclick="document.getElementById('login').style.display='none'"
+			class="close" title="Close Modal">&times;</span> -->
+
+ 		<!-- Modal Content -->
+  		<h:form styleClass="login-form animate">
+
+    		<div class="loginflex">
+      			<h:outputLabel for="uname" styleClass="login-field"><b>Username</b></h:outputLabel>
+      			<h:inputText id="uname" class="login-field" type="text" value="YO" required="true"/>
+
+      			<h:outputLabel for="pass" styleClass="login-field"><b>Password</b></h:outputLabel>
+      			<h:inputSecret id="pass" styleClass="login-field" value="yo2" required="true"/>
+
+     			<h:commandButton styleClass="genbutton" value="Login" action="#{nav.login()}"/>
+      			<h:commandButton styleClass="genbutton" value="Cancel" action="../faces/index.xhtml"/>
+    		</div>
+  		</h:form>
+	</div>
 </h:body>
 </html>
