@@ -1,23 +1,15 @@
 /* here is the css for the mainpage excluding the navbar */ 
 
 body {
-	 background-image: url("../img/Acropolis.jpg");
+	 background-image: url("../img/windows.jpg");
+	 background-size: 1200px 720px;
 }
 
 .confiletters {
-        font-family: 'Lato', sans-serif;
+     font-family: 'Lato', sans-serif;
 }
 
-#wrapper {
-  width: 100%;
-  margin: 0 auto;
-}
-
-#main {
-  background-color: #fff;
-  padding: 30px 0;
-}
-
+/* auta mallon dromo 
 .container {
   width: 100%;
   max-width: 1200px;
@@ -25,7 +17,6 @@ body {
   padding: 0 30px;
 }
 
-/* sections */
 section {
   margin-bottom: 60px;
   padding: 30px;
@@ -34,9 +25,9 @@ section {
 section:last-child {
   margin-bottom: 0;
 }
+*/
 
-/*mlk koropi kanta class auta gt epireazoun ta panta*/
-/* input[type="text"] {
+.style-4 input[type="text"] {
   display: block;
   margin: 0;
   width: 70%;
@@ -45,18 +36,14 @@ section:last-child {
   appearance: none;
   box-shadow: none;
   border-radius: none;
-} */
-input[type="text"]:focus {
-  outline: none;
-}
-
-.style-4 input[type="text"] {
   padding: 10px;
   border: none;
   border-bottom: solid 2px #c9c9c9;
   transition: border 0.3s;
 }
+
 .style-4 input[type="text"]:focus,
 .style-4 input[type="text"].focus {
+  outline: none;
   border-bottom: solid 2px #969696;
 }
