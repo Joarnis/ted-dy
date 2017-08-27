@@ -88,6 +88,11 @@ public class UserBean {
 			return "ok";
 	}
 	
+	public String logout() {
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "/index?faces-redirect=true";
+	}
+	
 	public boolean isLoggedIn() {
         return current != null;
     } 

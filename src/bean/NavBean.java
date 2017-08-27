@@ -68,12 +68,13 @@ public class NavBean {
 			return "html/login?faces-redirect=true";
 		}
 		else {
-			//logout
+			logout();
+			return "/index?faces-redirect=true";
 		}
 		
-		return "/index?faces-redirect=true";
 	}
 	
+	//this method is invoked from the login form
 	public String login() {
 		
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -84,13 +85,21 @@ public class NavBean {
 		if (status.equals("ok")){
 			login_logout = "Logout";
 			reg_edit = "Edit profile";
-			this.setHellomessage(user.real_username());
+			setHellomessage(user.real_username());
 		}
 		else {
 			String error = "Invalid username/password";
 			context.addMessage(null, new FacesMessage(error));
 		}
 		return "/index?faces-redirect=true";
+	}
+	
+	//this method is invoked directly from the login_logout button
+	public void logout() {
+		user.logout();
+		login_logout = "Login";
+		reg_edit = "Register";
+		emptyHellomessage();
 	}
 	
 }
