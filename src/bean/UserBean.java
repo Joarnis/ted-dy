@@ -62,7 +62,7 @@ public class UserBean {
 	
 	public String registerUser()
 	{
-		FacesContext context = FacesContext.getCurrentInstance();
+		//FacesContext context = FacesContext.getCurrentInstance();
 		User user = new User();
 
 		user.setFirstName(firstName);
