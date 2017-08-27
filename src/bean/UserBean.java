@@ -81,7 +81,7 @@ public class UserBean {
 		//compute hash
 		current = userDAO.find(username, password);
 		if (current == null)
-			return null;
+			return "error";
 		else
 			return "ok";
 	}

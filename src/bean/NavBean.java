@@ -85,7 +85,7 @@ public class NavBean {
 		FacesContext context = FacesContext.getCurrentInstance();
 		/*pass control to user bean for login*/
 		String status = user.login();
-		/*String status = "ok";*/
+		String statusc = "ok";
 		/*check if login was successful to alter the HTML*/
 		if (status.equals("ok")){
 			login_logout = "Logout";
@@ -94,7 +94,7 @@ public class NavBean {
 		}
 		else {
 			String error = "Invalid username/password";
-			/*context.addMessage(null, new FacesMessage(error));*/
+			context.addMessage(null, new FacesMessage(error));
 		}
 		return "/index?faces-redirect=true";
 	}
