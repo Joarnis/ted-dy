@@ -8,7 +8,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.persistence.Column;
 
-@ManagedBean(name="user")
+@ManagedBean(name="user", eager=true)
 @SessionScoped
 public class UserBean {
 	

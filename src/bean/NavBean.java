@@ -1,14 +1,14 @@
 package bean;
 
 import bean.UserBean;
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
-@ManagedBean(name="nav")
+@ManagedBean(name="nav", eager=true)
 @SessionScoped
 public class NavBean {
 
@@ -19,7 +19,14 @@ public class NavBean {
 	@ManagedProperty(value="#{user}")
 	private UserBean user;
 	
-	public NavBean() {
+/*	public NavBean() {
+		reg_edit = "Register";
+		login_logout = "Login";
+		hellomessage = "";
+	}*/
+	
+	@PostConstruct
+	public void init() {
 		reg_edit = "Register";
 		login_logout = "Login";
 		hellomessage = "";
@@ -78,16 +85,16 @@ public class NavBean {
 		FacesContext context = FacesContext.getCurrentInstance();
 		/*pass control to user bean for login*/
 		String status = user.login();
-
+		/*String status = "ok";*/
 		/*check if login was successful to alter the HTML*/
 		if (status.equals("ok")){
 			login_logout = "Logout";
 			reg_edit = "Edit profile";
-			this.setHellomessage(user.real_username());
+			this.setHellomessage("kon");
 		}
 		else {
 			String error = "Invalid username/password";
-			context.addMessage(null, new FacesMessage(error));
+			/*context.addMessage(null, new FacesMessage(error));*/
 		}
 		return "/index?faces-redirect=true";
 	}
