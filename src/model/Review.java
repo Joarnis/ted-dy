@@ -1,4 +1,4 @@
-package model;
+package bean;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -16,24 +16,27 @@ public class Review implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(unique=true, nullable=false)
 	private int id;
 
 	@Temporal(TemporalType.DATE)
+	@Column(nullable=false)
 	private Date date;
 
-	@Column(name="reviewer_name")
+	@Column(name="reviewer_name", nullable=false, length=45)
 	private String reviewerName;
 
+	@Column(length=500)
 	private String summary;
 
 	//bi-directional many-to-one association to Listing
 	@ManyToOne
-	@JoinColumn(name="listings_id")
+	@JoinColumn(name="listings_id", nullable=false)
 	private Listing listing;
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
-	@JoinColumn(name="reviewer_id")
+	@JoinColumn(name="reviewer_id", nullable=false)
 	private User user;
 
 	public Review() {

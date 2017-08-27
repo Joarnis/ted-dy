@@ -1,4 +1,4 @@
-package model;
+package bean;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -16,27 +16,31 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(unique=true, nullable=false)
 	private int id;
 
+	@Column(nullable=false, length=45)
 	private String email;
 
-	@Column(name="first_name")
+	@Column(name="first_name", nullable=false, length=30)
 	private String firstName;
 
-	@Column(name="is_host")
+	@Column(name="is_host", nullable=false)
 	private byte isHost;
 
-	@Column(name="is_verified")
+	@Column(name="is_verified", nullable=false)
 	private byte isVerified;
 
-	@Column(name="last_name")
+	@Column(name="last_name", nullable=false, length=30)
 	private String lastName;
 
+	@Column(nullable=false, length=128)
 	private String passhash;
 
-	@Column(name="phone_num")
+	@Column(name="phone_num", nullable=false, length=20)
 	private String phoneNum;
 
+	@Column(nullable=false, length=20)
 	private String username;
 
 	//bi-directional many-to-one association to Calendar

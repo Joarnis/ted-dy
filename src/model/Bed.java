@@ -1,4 +1,4 @@
-package model;
+package bean;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -15,19 +15,21 @@ public class Bed implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(unique=true, nullable=false)
 	private int id;
 
-	@Column(name="bedroom_no")
+	@Column(name="bedroom_no", nullable=false)
 	private int bedroomNo;
 
-	@Column(name="is_common")
+	@Column(name="is_common", nullable=false)
 	private byte isCommon;
 
+	@Column(nullable=false, length=20)
 	private String type;
 
 	//bi-directional many-to-one association to Listing
 	@ManyToOne
-	@JoinColumn(name="listings_id")
+	@JoinColumn(name="listings_id", nullable=false)
 	private Listing listing;
 
 	public Bed() {

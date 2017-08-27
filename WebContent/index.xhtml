@@ -27,16 +27,18 @@
         		Find your paradise.
         	</div>
         	<ul class="main_searchbox">
-      			<h:inputText id="listing_search" type="text" 
-      				         value="#{main_search.search_str}" 
-      				         placeholder="Pick your destination"/>
+      			<input id="autocomplete" type="text" 
+      				   placeholder="Pick your destination"/>
         	</ul>
         	
      </div>
-	<div id="locationField">
+	<!--<div id="locationField">
       <input id="autocomplete" placeholder="Enter your address"
-             onFocus="geolocate()" type="text"></input>
-    </div>
+              type="text"></input>
+              value="#{main_search.search_str}" 
+              <!onFocus="geolocate()"
+            
+    </div>-->
 
     <table id="address">
       <tr>
@@ -65,8 +67,8 @@
       </tr>
       <tr>
         <td class="label">Country</td>
-        <td class="wideField" colspan="3"><input class="field"
-              id="country" disabled="true"></input></td>
+        <td class="wideField" colspan="3"><h:inputText class="field"
+              id="country" disabled="true"></h:inputText></td>
       </tr>
     </table>
 

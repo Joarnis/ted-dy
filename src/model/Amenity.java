@@ -1,4 +1,4 @@
-package model;
+package bean;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -15,66 +15,78 @@ public class Amenity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="listings_id")
+	@Column(name="listings_id", unique=true, nullable=false)
 	private int listingsId;
 
-	@Column(name="air_conditioning")
+	@Column(name="air_conditioning", nullable=false)
 	private byte airConditioning;
 
-	@Column(name="bed_lock")
+	@Column(name="bed_lock", nullable=false)
 	private byte bedLock;
 
-	@Column(name="breakfast_coffee_tea")
+	@Column(name="breakfast_coffee_tea", nullable=false)
 	private byte breakfastCoffeeTea;
 
-	@Column(name="closet_drawers")
+	@Column(name="closet_drawers", nullable=false)
 	private byte closetDrawers;
 
-	@Column(name="co_detector")
+	@Column(name="co_detector", nullable=false)
 	private byte coDetector;
 
+	@Column(nullable=false)
 	private byte essentials;
 
+	@Column(nullable=false)
 	private byte events;
 
+	@Column(nullable=false)
 	private byte extinguisher;
 
+	@Column(nullable=false)
 	private byte fireplace;
 
-	@Column(name="first_aids")
+	@Column(name="first_aids", nullable=false)
 	private byte firstAids;
 
+	@Column(nullable=false)
 	private byte hairdryer;
 
+	@Column(nullable=false)
 	private byte heat;
 
+	@Column(nullable=false)
 	private byte iron;
 
-	@Column(name="office_wspace")
+	@Column(name="office_wspace", nullable=false)
 	private byte officeWspace;
 
+	@Column(nullable=false)
 	private byte pets;
 
-	@Column(name="priv_entrance")
+	@Column(name="priv_entrance", nullable=false)
 	private byte privEntrance;
 
-	@Column(name="safety_card")
+	@Column(name="safety_card", nullable=false)
 	private byte safetyCard;
 
+	@Column(nullable=false)
 	private byte shampoo;
 
-	@Column(name="smoke_detector")
+	@Column(name="smoke_detector", nullable=false)
 	private byte smokeDetector;
 
+	@Column(nullable=false)
 	private byte smoking;
 
+	@Column(nullable=false)
 	private byte tv;
 
+	@Column(nullable=false)
 	private byte wifi;
 
 	//bi-directional one-to-one association to Listing
 	@OneToOne
-	@JoinColumn(name="listings_id")
+	@JoinColumn(name="listings_id", nullable=false, insertable=false, updatable=false)
 	private Listing listing;
 
 	public Amenity() {

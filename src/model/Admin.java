@@ -1,4 +1,4 @@
-package model;
+package bean;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -15,8 +15,10 @@ public class Admin implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(unique=true, nullable=false, length=20)
 	private String username;
 
+	@Column(nullable=false, length=128)
 	private String passhash;
 
 	public Admin() {

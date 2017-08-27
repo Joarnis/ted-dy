@@ -1,4 +1,4 @@
-package model;
+package bean;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -16,25 +16,31 @@ public class Location implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(unique=true, nullable=false)
 	private int id;
 
+	@Column(nullable=false, length=45)
 	private String city;
 
 	@Column(name="house_no")
 	private short houseNo;
 
+	@Column(nullable=false)
 	private double latitude;
 
+	@Column(nullable=false)
 	private double longtitude;
 
-	@Column(name="postal_code")
+	@Column(name="postal_code", length=20)
 	private String postalCode;
 
+	@Column(length=45)
 	private String region;
 
+	@Column(nullable=false, length=45)
 	private String street;
 
-	@Column(name="street_no")
+	@Column(name="street_no", nullable=false)
 	private short streetNo;
 
 	//bi-directional many-to-one association to Listing
