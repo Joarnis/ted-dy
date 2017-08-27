@@ -68,11 +68,13 @@ public class UserBean {
 		user.setFirstName(firstName);
 		user.setEmail(email);
 		user.setIsHost(isHost);
-		user.setIsVerified(isVerified);
+		user.setIsVerified((byte)0);
 		user.setLastName(lastName);
 		user.setPhoneNum(phoneNum);
 		user.setUsername(username);
 		//compute hash
+		String passhash = DigestUtils.sha512Hex(password);
+		user.setPasshash(passhash);
 		//dao goes here
 		String message = userDAO.insertUser(user);
 		return message;

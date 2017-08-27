@@ -1,51 +1,35 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
-    <h:head>
-        <title>Register User</title>
-    </h:head>
-    <h:body>
-        <h:form>
-            <h1> Registration Form </h1>
-            <h:panelGrid columns="3">
-                Username: 
-                <h:inputText id="userName" value="" 
-                             validatorMessage="Maximum length is 50 characters"
-                             required="true" requiredMessage="Please enter your username">
-                     <f:validateLength maximum="50"/>
-                </h:inputText>                  
-                <h:message for="userName" styleClass="error"/>
-                Password: 
-                <h:inputSecret id="password" value="" 
-                             validatorMessage="Maximum length is 15 characters"
-                             required="true" requiredMessage="Please enter your password">
-                <f:validateLength maximum="15"/>
-                </h:inputSecret>                  
-                <h:message for="password" styleClass="error"/>
-                First Name: 
-                <h:inputText id="firstName" value="" 
-                             validatorMessage="Maximum length is 50 characters"
-                             required="true" requiredMessage="Please enter your first name">
-                <f:validateLength maximum="50"/>
-                </h:inputText>                  
-                <h:message for="firstName" styleClass="error"/>
-                Last Name: 
-                <h:inputText id="lastName" value=""
-                         validatorMessage="Maximum length is 100 characters"
-                         required="true" requiredMessage="Please enter your last name">
-                <f:validateLength maximum="100"/>
-                </h:inputText>
-                <h:message for="lastName" styleClass="error"/>
-            </h:panelGrid>
-            <p/>
-            <h:commandButton id="register" value="Register user" action="/"/>
-            <h:messages globalOnly="true" styleClass="error"/>
-        </h:form>
-        <p/>
-        <h:form>
-            <h:commandButton id="logout" value="Logout" action="/"/>
-        </h:form>
-    </h:body>
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Please Login</title>
+	<link href="../resources/css/navbar.css" rel="stylesheet"> </link>
+</h:head>
+<h:body>
+	<ui:include src="navbar.xhtml" />
+	
+	<div id="login" class="login">
+		<!-- <span onclick="document.getElementById('login').style.display='none'"
+			class="close" title="Close Modal">&times;</span> -->
+
+ 		<!-- Modal Content -->
+  		<h:form styleClass="login-form animate">
+
+    		<div class="loginflex">
+      			<h:outputLabel for="uname" styleClass="login-field"><b>Username</b></h:outputLabel>
+      			<h:inputText id="uname" class="login-field" value="#{user.username}" required="true"/>
+
+      			<h:outputLabel for="pass" styleClass="login-field"><b>Password</b></h:outputLabel>
+      			<h:inputSecret id="pass" styleClass="login-field" value="#{user.password}" required="true"/>
+
+     			<h:commandButton styleClass="genbutton" value="Register" action="#{user.registerUser()}"/>
+     			<h:button styleClass="genbutton" value="Cancel" outcome="/index?faces-redirect=true" />
+    		</div>
+  		</h:form>
+	</div>
+</h:body>
 </html>
