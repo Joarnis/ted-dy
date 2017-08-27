@@ -27,7 +27,7 @@ public class UserBean {
 	@ManagedProperty(value="#{userDAO}")
     private UserDAO userDAO;
 	
-	public void registerUser()
+	public String registerUser()
 	{
 		FacesContext context = FacesContext.getCurrentInstance();
 		User user = new User();
@@ -39,8 +39,19 @@ public class UserBean {
 		user.setLastName(lastName);
 		user.setPhoneNum(phoneNum);
 		user.setUsername(username);
+		//compute hash
 		//dao goes here
+		String message = userDAO.insertUser(user);
+		return message;
+	}
 	
+	public String login() {
+		//compute hash
+		current = userDAO.find(username, password);
+		if (current == null)
+			return null;
+		else
+			return "ok";
 	}
 	
 	public boolean isLoggedIn() {
