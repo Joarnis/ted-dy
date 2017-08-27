@@ -13,7 +13,7 @@ public class JPAResourceBean {
     
     public EntityManagerFactory getEMF (){
         if (emf == null){
-            emf = Persistence.createEntityManagerFactory("JSFProject");
+            emf = Persistence.createEntityManagerFactory("BnbTed");
         }
         return emf;
     }
