@@ -19,12 +19,6 @@ public class NavBean {
 	@ManagedProperty(value="#{user}")
 	private UserBean user;
 	
-/*	public NavBean() {
-		reg_edit = "Register";
-		login_logout = "Login";
-		hellomessage = "";
-	}*/
-	
 	@PostConstruct
 	public void init() {
 		reg_edit = "Register";
@@ -85,7 +79,7 @@ public class NavBean {
 		FacesContext context = FacesContext.getCurrentInstance();
 		/*pass control to user bean for login*/
 		String status = user.login();
-		String statusc = "ok";
+		/*String statusc = "ok"*/;
 		/*check if login was successful to alter the HTML*/
 		if (status.equals("ok")){
 			login_logout = "Logout";

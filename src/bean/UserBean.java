@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.persistence.Column;
+import org.apache.commons.codec.digest.DigestUtils;
 
 @ManagedBean(name="user", eager=true)
 @SessionScoped
@@ -79,7 +80,8 @@ public class UserBean {
 	
 	public String login() {
 		//compute hash
-		current = userDAO.find(username, password);
+		String passhash = DigestUtils.sha512Hex(password);
+		current = userDAO.find(username, passhash);
 		if (current == null)
 			return "error";
 		else
