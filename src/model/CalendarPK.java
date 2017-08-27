@@ -12,10 +12,11 @@ public class CalendarPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="listings_id", insertable=false, updatable=false)
+	@Column(name="listings_id", insertable=false, updatable=false, unique=true, nullable=false)
 	private int listingsId;
 
 	@Temporal(TemporalType.DATE)
+	@Column(unique=true, nullable=false)
 	private java.util.Date date;
 
 	public CalendarPK() {

@@ -17,13 +17,15 @@ public class Calendar implements Serializable {
 	@EmbeddedId
 	private CalendarPK id;
 
+	@Column(nullable=false)
 	private byte available;
 
+	@Column(length=45)
 	private String price;
 
 	//bi-directional many-to-one association to Listing
 	@ManyToOne
-	@JoinColumn(name="listings_id")
+	@JoinColumn(name="listings_id", nullable=false, insertable=false, updatable=false)
 	private Listing listing;
 
 	//bi-directional many-to-one association to User

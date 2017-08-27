@@ -15,8 +15,11 @@ public class Admin implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(unique=true, nullable=false, length=20)
 	private String username;
 
+	@Column(nullable=false, length=128)
 	private String passhash;
 
 	public Admin() {

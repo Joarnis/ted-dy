@@ -12,7 +12,7 @@ import javax.persistence.Query;
 
 import dao.JPAResourceBean;
 
-@ManagedBean(name="userDAO")
+@ManagedBean(name="userDAO", eager=true)
 @SessionScoped
 public class UserDAO {
 

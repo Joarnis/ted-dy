@@ -15,33 +15,40 @@ public class UsableSpace implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="listings_id")
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="listings_id", unique=true, nullable=false)
 	private int listingsId;
 
+	@Column(nullable=false)
 	private byte elevator;
 
+	@Column(nullable=false)
 	private byte gym;
 
+	@Column(nullable=false)
 	private byte jacuzzi;
 
+	@Column(nullable=false)
 	private byte kitchen;
 
-	@Column(name="laundry_dryer")
+	@Column(name="laundry_dryer", nullable=false)
 	private byte laundryDryer;
 
-	@Column(name="laundry_washer")
+	@Column(name="laundry_washer", nullable=false)
 	private byte laundryWasher;
 
+	@Column(nullable=false)
 	private byte parking;
 
+	@Column(nullable=false)
 	private byte pool;
 
-	@Column(name="priv_living_room")
+	@Column(name="priv_living_room", nullable=false)
 	private byte privLivingRoom;
 
 	//bi-directional one-to-one association to Listing
 	@OneToOne
-	@JoinColumn(name="listings_id")
+	@JoinColumn(name="listings_id", nullable=false, insertable=false, updatable=false)
 	private Listing listing;
 
 	public UsableSpace() {

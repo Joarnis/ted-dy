@@ -17,24 +17,29 @@ public class Listing implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(unique=true, nullable=false)
 	private int id;
 
-	@Column(name="bathrooms_no")
+	@Column(name="bathrooms_no", nullable=false, precision=10)
 	private BigDecimal bathroomsNo;
 
+	@Column(nullable=false, length=45)
 	private String capacity;
 
-	@Column(name="listing_url")
+	@Column(name="listing_url", nullable=false, length=45)
 	private String listingUrl;
 
-	@Column(name="min_nights")
+	@Column(name="min_nights", nullable=false)
 	private short minNights;
 
+	@Column(nullable=false, length=45)
 	private String name;
 
-	@Column(name="rooms_no")
+	@Column(name="rooms_no", nullable=false)
 	private byte roomsNo;
 
+	@Column(nullable=false, length=200)
 	private String summary;
 
 	//bi-directional one-to-one association to Amenity
@@ -51,11 +56,12 @@ public class Listing implements Serializable {
 
 	//bi-directional many-to-one association to Location
 	@ManyToOne
+	@JoinColumn(name="location_id", nullable=false)
 	private Location location;
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
-	@JoinColumn(name="owner_id")
+	@JoinColumn(name="owner_id", nullable=false)
 	private User user;
 
 	//bi-directional many-to-one association to Review
