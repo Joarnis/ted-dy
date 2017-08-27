@@ -5,4 +5,5 @@
 build/
 src/META-INF/
 WebContent/META-INF/
-WebContent/WEB-INF/
+WebContent/WEB-INF/faces-config.xml
+WebContent/WEB-INF/web.xml
