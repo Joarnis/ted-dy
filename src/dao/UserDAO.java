@@ -19,6 +19,14 @@ public class UserDAO {
 	@ManagedProperty(value="#{jpaResourceBean}")
 	protected JPAResourceBean jpaResourceBean;
 	
+	public void setJpaResourceBean(JPAResourceBean jpaResourceBean) {
+		this.jpaResourceBean = jpaResourceBean;
+	}
+
+	public JPAResourceBean getJpaResourceBean() {
+		return jpaResourceBean;
+	}
+	
 	public String insertUser(User user) {
 		String retMessage = "";
 		EntityManager em = jpaResourceBean.getEMF().createEntityManager();

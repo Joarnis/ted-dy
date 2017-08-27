@@ -27,6 +27,38 @@ public class UserBean {
 	@ManagedProperty(value="#{userDAO}")
     private UserDAO userDAO;
 	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public String getPassword() {
+		return this.password;
+	}
+	
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
+	}
+	
+	public String getPhoneNum() {
+		return phoneNum;
+	}
+	
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	public String getUsername() {
+		return username;
+	}
+	
+	public void setUserDAO(UserDAO userDAO) {
+		this.userDAO = userDAO;
+	}
+	
+    public UserDAO getUserDAO() {
+		return userDAO;
+	}
+	
 	public String registerUser()
 	{
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -58,11 +90,9 @@ public class UserBean {
         return current != null;
     } 
 	
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	
-	public String getPassword() {
-		return this.password;
+	/*these methods are for the actual user logged in*/
+	public String real_username()
+	{
+		return current.getUsername();
 	}
 }
