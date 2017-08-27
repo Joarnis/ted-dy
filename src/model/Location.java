@@ -23,6 +23,9 @@ public class Location implements Serializable {
 	@Column(nullable=false, length=45)
 	private String city;
 
+	@Column(nullable=false, length=45)
+	private String country;
+
 	@Column(name="house_no")
 	private short houseNo;
 
@@ -65,6 +68,14 @@ public class Location implements Serializable {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public String getCountry() {
+		return this.country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 	public short getHouseNo() {
