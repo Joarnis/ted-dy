@@ -84,7 +84,7 @@ public class NavBean {
 		if (status.equals("ok")){
 			login_logout = "Logout";
 			reg_edit = "Edit profile";
-			this.setHellomessage("kon");
+			this.setHellomessage(user.real_username());
 		}
 		else {
 			String error = "Invalid username/password";
