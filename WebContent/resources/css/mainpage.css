@@ -27,7 +27,7 @@ section:last-child {
 }
 */
 
-.style-4 input[type="text"] {
+.main_searchbox input[type="text"] {
   display: block;
   margin: 0;
   width: 70%;
@@ -42,8 +42,8 @@ section:last-child {
   transition: border 0.3s;
 }
 
-.style-4 input[type="text"]:focus,
-.style-4 input[type="text"].focus {
+.main_searchbox input[type="text"]:focus,
+.main_searchbox input[type="text"].focus {
   outline: none;
   border-bottom: solid 2px #969696;
 }
