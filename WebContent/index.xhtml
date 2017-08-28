@@ -6,7 +6,7 @@
 <h:head>
 	<title>Paradise Housing Services</title>
     <link href="resources/css/navbar.css" rel="stylesheet"/>
-    <link href="resources/css/mainpage.css" rel="stylesheet"/>
+    <link href="resources/css/main.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
     
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFRX34hQEgqE6_R5upjRmEpJ73muXKj4I&amp;libraries=places&amp;callback=initAutocomplete"
@@ -67,8 +67,9 @@
       </tr>
       <tr>
         <td class="label">Country</td>
-        <td class="wideField" colspan="3"><h:inputHidden class="field" value="#{main_search.search_str}"
+        <td class="wideField" colspan="3"><h:inputHidden class="field" value="#{main.search_str}"
               id="country" disabled="true"></h:inputHidden></td>
+     <td><h:commandButton styleClass="genbutton" value="mpla" action="#{main.find_country()}"/></td>
       </tr>
     </table>
 
