@@ -39,7 +39,7 @@
               <!onFocus="geolocate()"
             
     </div>-->
-
+    <h:form id="locSearch">
     <table id="address">
       <tr>
         <td class="label">Street address</td>
@@ -65,13 +65,14 @@
         <td class="wideField"><input class="field" id="postal_code"
               disabled="true"></input></td>
       </tr>
-      <tr>
-        <td class="label">Country</td>
-        <td class="wideField" colspan="3"><h:inputHidden class="field" value="#{main.search_str}"
-              id="country" disabled="true"></h:inputHidden></td>
-     <td><h:commandButton styleClass="genbutton" value="mpla" action="#{main.find_country()}"/></td>
-      </tr>
-    </table>
+      </table>
+      
+         Country
+        <h:inputText class="field" value="#{main.country}"
+              id="country"></h:inputText>
+     <h:commandButton styleClass="genbutton" value="mpla" action="#{main.find_country()}"/>
+    </h:form>
+    #{main.out_str}
 
 
 	
