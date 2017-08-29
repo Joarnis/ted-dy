@@ -12,23 +12,18 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFRX34hQEgqE6_R5upjRmEpJ73muXKj4I&amp;libraries=places&amp;callback=initAutocomplete"
     async="defer"></script>
     
-    
     <h:outputScript library="js" name="google_places_autocomp.js"  target="head"/>
-
-
-
-
-    
 </h:head>
 <h:body>
 	<ui:include src="html/navbar.xhtml" />
-     <div id="main">
+	<h:form id="locSearch">
+		<div id="main">
     		<div class="confiletters">
         		Find your paradise.
         	</div>
         	<ul class="main_searchbox">
-      			<input id="autocomplete" type="text" 
-      				   placeholder="Pick your destination"/>
+      			<h:inputText id="mainstr" type="text" value="#{main.mainstr}"
+      				   placeholder="Pick your destination"></h:inputText>
         	</ul>
         	
      </div>
@@ -39,38 +34,23 @@
               <!onFocus="geolocate()"
             
     </div>-->
-    <h:form id="locSearch">
-    <table id="address">
-      <tr>
-        <td class="label">Street address</td>
-        <td class="slimField"><input class="field" id="street_number"
-              disabled="true"></input></td>
-        <td class="wideField" colspan="2"><input class="field" id="route"
-              disabled="true"></input></td>
-      </tr>
-      <tr>
-        <td class="label">City</td>
-        <!-- Note: Selection of address components in this example is typical.
+    <!-- Note: Selection of address components in this example is typical.
              You may need to adjust it for the locations relevant to your app. See
              https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
         -->
-        <td class="wideField" colspan="3"><input class="field" id="locality"
-              disabled="true"></input></td>
-      </tr>
-      <tr>
-        <td class="label">State</td>
-        <td class="slimField"><input class="field"
-              id="administrative_area_level_1" disabled="true"></input></td>
-        <td class="label">Zip code</td>
-        <td class="wideField"><input class="field" id="postal_code"
-              disabled="true"></input></td>
-      </tr>
-      </table>
-      
-         Country
-        <h:inputText class="field" value="#{main.country}"
-              id="country"></h:inputText>
-     <h:commandButton styleClass="genbutton" value="mpla" action="#{main.find_country()}"/>
+       
+    
+    
+    	<!-- Street address and Number -->
+    	<h:inputHidden class="field" id="street_number" value="#{main.street_number}"> </h:inputHidden>
+    	<h:inputHidden class="field" id="route" value="#{main.route}"></h:inputHidden>
+    	<!-- City -->
+    	<h:inputHidden class="field" id="locality" value="#{main.locality}"></h:inputHidden>
+    	<!-- Zip code -->
+    	<h:inputHidden class="field" id="postal_code" value="#{main.postal_code}"></h:inputHidden>
+    	<!-- Country -->
+    	<h:inputHidden class="field" value="#{main.country}" id="country"></h:inputHidden>
+    	<h:commandButton styleClass="genbutton" value="Search" action="#{main.find_country()}"/>
     </h:form>
     #{main.out_str}
 
