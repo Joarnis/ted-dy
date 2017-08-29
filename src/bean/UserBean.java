@@ -76,11 +76,11 @@ public class UserBean {
 		String passhash = DigestUtils.sha512Hex(password);
 		user.setPasshash(passhash);
 		//dao goes here
-		String message = userDAO.insertUser(user);
-		return message;
+		return userDAO.insertUser(user);
+		/*return message;*/
 	}
 	
-	public String login() {
+	public String loginUser() {
 		//compute hash
 		String passhash = DigestUtils.sha512Hex(password);
 		current = userDAO.find(username, passhash);
@@ -90,7 +90,7 @@ public class UserBean {
 			return "ok";
 	}
 	
-	public String logout() {
+	public String logoutUser() {
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		return "/index?faces-redirect=true";
 	}

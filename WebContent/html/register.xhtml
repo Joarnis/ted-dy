@@ -17,19 +17,28 @@
 			class="close" title="Close Modal">&times;</span> -->
 
  		<!-- Modal Content -->
-  		<h:form styleClass="login-form animate">
+  		<p:form styleClass="login-form animate">
 
     		<div class="loginflex">
-      			<h:outputLabel for="uname" styleClass="login-field"><b>Username</b></h:outputLabel>
+    		     <h:outputLabel for="uname" styleClass="login-field"><b>Username</b></h:outputLabel>
       			<h:inputText id="uname" class="login-field" value="#{user.username}" required="true"/>
 
       			<h:outputLabel for="pass" styleClass="login-field"><b>Password</b></h:outputLabel>
       			<h:inputSecret id="pass" styleClass="login-field" value="#{user.password}" required="true"/>
+      			
+    			<h:outputLabel for="fname" styleClass="login-field"><b>First Name</b></h:outputLabel>
+      			<h:inputText id="fname" class="login-field" value="#{user.firstName}" required="true"/>
+      			
+      			<h:outputLabel for="lname" styleClass="login-field"><b>Last Name</b></h:outputLabel>
+      			<h:inputText id="lname" class="login-field" value="#{user.lastName}" required="true"/>
+      			
+      			<h:outputLabel for="phone" styleClass="login-field"><b>Last Name</b></h:outputLabel>
+      			<h:inputText id="phone" class="login-field" value="#{user.phoneNum}" required="true"/>
 
      			<h:commandButton styleClass="genbutton" value="Register" action="#{user.registerUser()}"/>
      			<h:button styleClass="genbutton" value="Cancel" outcome="/index?faces-redirect=true" />
     		</div>
-  		</h:form>
+  		</p:form>
 	</div>
 </h:body>
 </html>

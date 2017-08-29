@@ -61,10 +61,21 @@ public class NavBean {
 	public UserBean getUser() {
 		return user;
 	}
-	
+
+	/*the 2 methods below determine the behavior when the buttons are clicked*/
+	public String reg_edit_clicked() {
+		if (reg_edit.equals("Register")){
+			return "html/register?faces-redirect=true";
+		}
+		else {
+			//edit profile
+			return "";
+		}
+	}
+
 	public String login_logout_clicked() {
 		if (login_logout.equals("Login")){
-			/*no one is logged in*/
+			/*no one is logged in -> login*/
 			return "html/login?faces-redirect=true";
 		}
 		else {
@@ -74,14 +85,30 @@ public class NavBean {
 		
 	}
 	
-	//this method is invoked from the login form
-	public String login() {
-		
+	/*the methods below determine the behavior when a login/register form is submitted*/
+	public String register() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		/*pass control to user bean for login*/
-		String status = user.login();
-		/*String statusc = "ok"*/;
-		/*check if login was successful to alter the HTML*/
+		String status = user.registerUser();
+		
+		/*check if insert was successful to proceed*/
+		if (status.equals("ok")) {
+			
+		}
+		else
+		{
+			
+		}
+		return "/index?faces-redirect=true";
+	}
+	
+	
+	public String login() {	
+		FacesContext context = FacesContext.getCurrentInstance();
+		/*pass control to user bean for login*/
+		String status = user.loginUser();
+		
+		/*check if login was successful to proceed*/
 		if (status.equals("ok")){
 			login_logout = "Logout";
 			reg_edit = "Edit profile";
@@ -96,7 +123,7 @@ public class NavBean {
 	
 	//this method is invoked directly from the login_logout button
 	public void logout() {
-		user.logout();
+		user.logoutUser();	//session is invalidated here
 		login_logout = "Login";
 		reg_edit = "Register";
 		emptyHellomessage();
