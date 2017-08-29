@@ -7,6 +7,7 @@
       xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>Please Login</title>
+	<link href="../resources/css/general.css" rel="stylesheet"/>
 	<link href="../resources/css/navbar.css" rel="stylesheet"> </link>
 </h:head>
 <h:body>
@@ -17,7 +18,7 @@
 			class="close" title="Close Modal">&times;</span> -->
 
  		<!-- Modal Content -->
-  		<p:form styleClass="login-form animate">
+  		<h:form styleClass="login-form animate">
 
     		<div class="loginflex">
     		     <h:outputLabel for="uname" styleClass="login-field"><b>Username</b></h:outputLabel>
@@ -34,11 +35,13 @@
       			
       			<h:outputLabel for="phone" styleClass="login-field"><b>Last Name</b></h:outputLabel>
       			<h:inputText id="phone" class="login-field" value="#{user.phoneNum}" required="true"/>
+      			<p:outputLabel for="selectBooleanCheckbox" value="" />
+    			<p:selectBooleanCheckbox id="selectBooleanCheckbox" itemLabel="I want to be a host"/>
 
      			<h:commandButton styleClass="genbutton" value="Register" action="#{user.registerUser()}"/>
      			<h:button styleClass="genbutton" value="Cancel" outcome="/index?faces-redirect=true" />
     		</div>
-  		</p:form>
+  		</h:form>
 	</div>
 </h:body>
 </html>

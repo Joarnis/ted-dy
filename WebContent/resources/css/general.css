@@ -1,0 +1,7 @@
+/*general css to be applied in every page e.g background image and buttons*/
+
+body {
+	background: url("../img/New-York.jpg") no-repeat center center fixed;
+	/*  background-image: url("../img/New-York.jpg");
+	 background-size: 1200px 720px; */
+}
