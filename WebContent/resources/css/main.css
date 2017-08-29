@@ -1,8 +1,9 @@
 /* here is the css for the mainpage excluding the navbar */ 
 
 body {
-	 background-image: url("../img/windows.jpg");
-	 background-size: 1200px 720px;
+	background: url("../img/New-York.jpg") no-repeat center center fixed;
+	/*  background-image: url("../img/New-York.jpg");
+	 background-size: 1200px 720px; */
 }
 
 .confiletters {
