@@ -15,7 +15,6 @@ public class Amenity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="listings_id", unique=true, nullable=false)
 	private int listingsId;
 

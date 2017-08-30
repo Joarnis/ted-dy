@@ -17,7 +17,6 @@ public class Listing implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(unique=true, nullable=false)
 	private int id;
 
@@ -36,6 +35,9 @@ public class Listing implements Serializable {
 	@Column(nullable=false, length=45)
 	private String name;
 
+	@Column(name="overall_rating")
+	private int overallRating;
+
 	@Column(name="rooms_no", nullable=false)
 	private byte roomsNo;
 
@@ -53,6 +55,10 @@ public class Listing implements Serializable {
 	//bi-directional many-to-one association to Calendar
 	@OneToMany(mappedBy="listing")
 	private List<Calendar> calendars;
+
+	//bi-directional many-to-one association to ListingPic
+	@OneToMany(mappedBy="listing")
+	private List<ListingPic> listingPics;
 
 	//bi-directional many-to-one association to Location
 	@ManyToOne
@@ -123,6 +129,14 @@ public class Listing implements Serializable {
 		this.name = name;
 	}
 
+	public int getOverallRating() {
+		return this.overallRating;
+	}
+
+	public void setOverallRating(int overallRating) {
+		this.overallRating = overallRating;
+	}
+
 	public byte getRoomsNo() {
 		return this.roomsNo;
 	}
@@ -189,6 +203,28 @@ public class Listing implements Serializable {
 		calendar.setListing(null);
 
 		return calendar;
+	}
+
+	public List<ListingPic> getListingPics() {
+		return this.listingPics;
+	}
+
+	public void setListingPics(List<ListingPic> listingPics) {
+		this.listingPics = listingPics;
+	}
+
+	public ListingPic addListingPic(ListingPic listingPic) {
+		getListingPics().add(listingPic);
+		listingPic.setListing(this);
+
+		return listingPic;
+	}
+
+	public ListingPic removeListingPic(ListingPic listingPic) {
+		getListingPics().remove(listingPic);
+		listingPic.setListing(null);
+
+		return listingPic;
 	}
 
 	public Location getLocation() {
