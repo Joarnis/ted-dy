@@ -24,12 +24,12 @@
       			<h:outputLabel for="uname"><b>Username</b></h:outputLabel>
       			<h:inputText id="uname" class="login-field" value="#{user.username}" required="true"
       			requiredMessage="Please enter your username"/>
-      			<h:message for="uname" styleClass="error"/>
+      			<p:message for="uname"/>
 
       			<h:outputLabel for="pass"><b>Password</b></h:outputLabel>
       			<h:inputSecret id="pass" styleClass="login-field" value="#{user.password}" required="true"
       			requiredMessage="Please enter your password"/>
-      			<h:message for="pass" styleClass="error"/>
+      			<p:message for="pass"/>
 
      			<h:commandButton styleClass="genbutton" value="Login" action="#{nav.login()}"/>
      			<h:button styleClass="genbutton" value="Cancel" outcome="/index?faces-redirect=true" />

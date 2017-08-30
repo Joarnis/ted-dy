@@ -3,7 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
 <h:head>
 	<title>Paradise Housing Services</title>
 	<link href="resources/css/general.css" rel="stylesheet"/>
@@ -63,7 +65,11 @@
     	</ul>
     </h:form>
     #{main.out_str}
-	
+
+
+	<!-- <f:metadata>
+        <f:viewAction action="#{sug.find_top_rated_rooms()}" />
+	</f:metadata> -->
 	
 	<noscript>
   
@@ -86,5 +92,6 @@
         </section>
       </div>
       </div> -->
+      
 </h:body>
 </html>

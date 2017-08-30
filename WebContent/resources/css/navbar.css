@@ -70,7 +70,7 @@
 
 /* Style of the form */
 .login-form {
-    background-color: rgba(254, 254, 254, 0.3);
+    background-color: rgba(254, 254, 254, 0.4);
     margin: 5px auto; /* 15% from the top and centered */
     border: 1px solid #888;
     width: 40%; /* Could be more or less, depending on screen size */
@@ -78,7 +78,11 @@
 
 .login-field {
 	height: 30px;
-	margin: 0 0 8px;
+	/* margin: 0 0 8px; */
+}
+
+.login-label {
+	/* margin: 8px 0 0; */
 }
 
 /* The Close Button */
