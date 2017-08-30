@@ -27,29 +27,28 @@
         	</ul>
         	
      </div>
-	<!--<div id="locationField">
-      <input id="autocomplete" placeholder="Enter your address"
-              type="text"></input>
-              value="#{main_search.search_str}" 
-              <!onFocus="geolocate()"
-            
-    </div>-->
-    <!-- Note: Selection of address components in this example is typical.
-             You may need to adjust it for the locations relevant to your app. See
-             https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
-        -->
-       
-    
-    
+     
     	<!-- Street address and Number -->
-    	<h:inputHidden class="field" id="street_number" value="#{main.street_number}"> </h:inputHidden>
-    	<h:inputHidden class="field" id="route" value="#{main.route}"></h:inputHidden>
+    	<h:inputText id="street_number" value="#{main.street_number}"> </h:inputText>
+    	<h:inputText id="route" value="#{main.route}"></h:inputText>
     	<!-- City -->
-    	<h:inputHidden class="field" id="locality" value="#{main.locality}"></h:inputHidden>
+    	<h:inputText id="locality" value="#{main.locality}"></h:inputText>
+    	<!-- District -->
+    	<h:inputText id="sublocality"></h:inputText>
+    	<!-- District -->
+    	<h:inputText id="administrative_area_level_1" ></h:inputText>
+    	<!-- District -->
+    	<h:inputText id="administrative_area_level_2" ></h:inputText>
+    	<!-- District -->
+    	<h:inputText id="administrative_area_level_3" ></h:inputText>
+    	<!-- District -->
+    	<h:inputText id="neighborhood" ></h:inputText>
+    	<!-- District -->
+    	<h:inputText id="premise" ></h:inputText>
     	<!-- Zip code -->
-    	<h:inputHidden class="field" id="postal_code" value="#{main.postal_code}"></h:inputHidden>
+    	<h:inputText id="postal_code" value="#{main.postal_code}"></h:inputText>
     	<!-- Country -->
-    	<h:inputHidden class="field" value="#{main.country}" id="country"></h:inputHidden>
+    	<h:inputText id="country" value="#{main.country}"></h:inputText>
     	<h:commandButton styleClass="genbutton" value="Search" action="#{main.find_country()}"/>
     </h:form>
     #{main.out_str}

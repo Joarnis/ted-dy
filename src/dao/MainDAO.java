@@ -40,7 +40,6 @@ public class MainDAO {
 		em.close();
 		//LOGGER.info("Currently executing method foo()");
 		Location loc = locations.get(0);
-
 		return loc;
 
 	}
