@@ -6,7 +6,7 @@
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-      function initAutocomplete() {
+   /*   function initAutocomplete() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -33.8688, lng: 151.2195},
           zoom: 13,
@@ -42,4 +42,4 @@
                 var val = place.address_components[i][componentForm[addressType]];
                 document.getElementById(addressType).value = val;
         });
-      }
+      }*/

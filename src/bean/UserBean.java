@@ -16,7 +16,7 @@ public class UserBean {
 	private int id;
 	private String email;
 	private String firstName;
-	private byte isHost;
+	private boolean isHost;
 	private byte isVerified;
 	private String lastName;
 	private String password;
@@ -28,12 +28,44 @@ public class UserBean {
 	@ManagedProperty(value="#{userDAO}")
     private UserDAO userDAO;
 	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	
+	public void setIsHost(boolean isHost) {
+		this.isHost = isHost;
+	}
+	
+	public boolean getIsHost() {
+		return isHost;
+	}
+	
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	
 	public void setPassword(String password) {
 		this.password = password;
 	}
 	
 	public String getPassword() {
-		return this.password;
+		return password;
 	}
 	
 	public void setPhoneNum(String phoneNum) {
@@ -67,7 +99,7 @@ public class UserBean {
 
 		user.setFirstName(firstName);
 		user.setEmail(email);
-		user.setIsHost(isHost);
+		user.setIsHost((byte)(isHost ? 1:0));
 		user.setIsVerified((byte)0);
 		user.setLastName(lastName);
 		user.setPhoneNum(phoneNum);
@@ -76,11 +108,11 @@ public class UserBean {
 		String passhash = DigestUtils.sha512Hex(password);
 		user.setPasshash(passhash);
 		//dao goes here
-		String message = userDAO.insertUser(user);
-		return message;
+		return userDAO.insertUser(user);
+		/*return message;*/
 	}
 	
-	public String login() {
+	public String loginUser() {
 		//compute hash
 		String passhash = DigestUtils.sha512Hex(password);
 		current = userDAO.find(username, passhash);
@@ -90,7 +122,7 @@ public class UserBean {
 			return "ok";
 	}
 	
-	public String logout() {
+	public String logoutUser() {
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		return "/index?faces-redirect=true";
 	}

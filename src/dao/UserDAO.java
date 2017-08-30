@@ -28,7 +28,7 @@ public class UserDAO {
 	}
 	
 	public String insertUser(User user) {
-		String retMessage = "";
+		String retMessage = "error";
 		EntityManager em = jpaResourceBean.getEMF().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();

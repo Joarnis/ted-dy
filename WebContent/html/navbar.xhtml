@@ -14,7 +14,7 @@
 			<div id="hello">#{nav.hellomessage}</div>
 			<div class="flexright">
 				<h:form>
-					<h:commandButton class="genbutton" value="#{nav.reg_edit}" action="html/register.xhtml" />
+					<h:commandButton class="genbutton" value="#{nav.reg_edit}" action="#{nav.reg_edit_clicked()}" />
 				</h:form>
 				<h:form>
 					<h:commandButton class="genbutton" value="#{nav.login_logout}" action="#{nav.login_logout_clicked()}"/>
