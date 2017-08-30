@@ -7,6 +7,7 @@
 //<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
 var placeSearch, autocomplete;
+var submit;
 var componentForm = {
     street_number: 'short_name',
     route: 'long_name',
@@ -23,87 +24,27 @@ var componentForm = {
 };
 
 function initAutocomplete() {
-// Create the autocomplete object, restricting the search to geographical
-// location types.
+	// Create the autocomplete object, restricting the search to geographical
+	// location types.
     autocomplete = new google.maps.places.Autocomplete(
     /** @type {!HTMLInputElement} */(document.getElementById('locSearch:mainstr')),
     {types: ['geocode']});
 
-// When the user selects an address from the dropdown, populate the address
-// fields in the form.
+    // When the user selects an address from the dropdown, populate the address
+    // fields in the form.
     autocomplete.addListener('place_changed', fillInAddress);
-    /*var input = document.getElementById('locSearch:mainstr');
+    
+    // Do not submit form on first enter
+    var input = document.getElementById('locSearch:mainstr');
+    submit = 0;
     google.maps.event.addDomListener(input, 'keydown', function(event) { 
-      if (event.keyCode === 13) { 
-          event.preventDefault(); 
+      if (event.keyCode === 13 && submit == 0) { 
+          event.preventDefault();
+          submit = 1;
       }
-    });*/
-    
-    
-    /*var location_being_changed,
-    	onPlaceChange = function () {
-        	location_being_changed = false;
-    	};
-    
-    autocomplete.addListener('place_changed', onPlaceChange);
-    
-    google.maps.event.addDomListener(input, 'keydown', function (e) {
-        if (e.keyCode === 13) {
-            if (location_being_changed) {
-                e.preventDefault();
-                e.stopPropagation();
-            }
-        } else {
-            // means the user is probably typing
-            location_being_changed = true;
-        }
+      else
+    	  submit = 0;
     });
-    
-    google.maps.event.addDomListener(input, 'keydown', function (e) {
-    	// If it's Enter
-    	if (e.keyCode === 13) {
-    		// Select all Google's dropdown DOM nodes (can be multiple)
-    	    var googleDOMNodes = document.getElementsByClassName('pac-container');
-    	    // Check if any of them is visible (using ES6 here for conciseness)
-    	    var googleDOMNodeIsVisible = Array.from(googleDOMNodes).some(function (node) { 
-    	    	return node.offsetParent != null;
-    	    });
-    	    // If it's so - preventDefault
-    	    if (googleDOMNodeIsVisible)
-    	    	e.preventDefault();
-    	}
-    });*/
-    
-    
-    google.maps.event.addDomListener(
-    	    document.getElementById('locSearch:mainstr'),
-    	    'keydown',
-    	    function(e) {
-    	          // If it's Enter
-    	          if (e.keyCode === 13) {
-    	            // Select all Google's dropdown DOM nodes (can be multiple)
-    	            var googleDOMNodes = document.getElementsByClassName('pac-container');
-    	            //If multiple nodes, prevent form submit.
-    	            if (googleDOMNodes.length > 0){
-    	                e.preventDefault();
-    	            }
-    	            //Remove Google's drop down elements, so that future form submit requests work.
-    	            removeElementsByClass('pac-container');
-    	          }
-    	    }
-    	);
-
-    	function removeElementsByClass(className){
-    	    var elements = document.getElementsByClassName(className);
-    	    while(elements.length > 0){
-    	        elements[0].parentNode.removeChild(elements[0]);
-    	    }
-    	}
-    /*autocomplete.addListener('keydown', function(e) { 
-        if (e.keyCode == 13 && $('.pac-container:visible').length) { 
-            e.preventDefault(); 
-        }
-    });*/
 }
 
 function fillInAddress() {
