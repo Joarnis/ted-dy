@@ -3,6 +3,7 @@ package bean;
 import model.User;
 import dao.UserDAO;
 import javax.faces.context.FacesContext;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
@@ -135,5 +136,9 @@ public class UserBean {
 	public String real_username()
 	{
 		return current.getUsername();
+	}
+	
+	public void validatepass() {
+		FacesContext.getCurrentInstance().addMessage("msgpass", new FacesMessage("Welcome Kon"));
 	}
 }
