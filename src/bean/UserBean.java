@@ -16,7 +16,7 @@ public class UserBean {
 	private int id;
 	private String email;
 	private String firstName;
-	private byte isHost;
+	private boolean isHost;
 	private byte isVerified;
 	private String lastName;
 	private String password;
