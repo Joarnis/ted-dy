@@ -32,7 +32,7 @@
       				<f:validateLength minimum="2" />
       				<p:ajax update="msgpass" event="keyup" />
       			</h:inputSecret>
-      			<p:message for="pass" id="msgpass" display="icon" />
+      			<p:message for="pass" id="msgpass" />
       			
     			<h:outputLabel for="fname"><b>First Name</b></h:outputLabel>
       			<h:inputText id="fname" class="login-field" value="#{user.firstName}" required="true"/>
