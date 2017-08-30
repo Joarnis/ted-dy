@@ -44,11 +44,11 @@ public class UserBean {
 		return firstName;
 	}
 	
-	public void setIsHost(byte isHost) {
+	public void setIsHost(boolean isHost) {
 		this.isHost = isHost;
 	}
 	
-	public byte getIsHost() {
+	public boolean getIsHost() {
 		return isHost;
 	}
 	
@@ -99,7 +99,7 @@ public class UserBean {
 
 		user.setFirstName(firstName);
 		user.setEmail(email);
-		user.setIsHost(isHost);
+		user.setIsHost((byte)(isHost ? 1:0));
 		user.setIsVerified((byte)0);
 		user.setLastName(lastName);
 		user.setPhoneNum(phoneNum);
