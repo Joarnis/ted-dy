@@ -14,6 +14,10 @@ import javax.persistence.*;
 public class ListingPic implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@Column(unique=true, nullable=false)
+	private int id;
+
 	@Column(name="pic_path", nullable=false, length=45)
 	private String picPath;
 
@@ -23,6 +27,14 @@ public class ListingPic implements Serializable {
 	private Listing listing;
 
 	public ListingPic() {
+	}
+
+	public int getId() {
+		return this.id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getPicPath() {

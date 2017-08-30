@@ -56,6 +56,10 @@ public class Listing implements Serializable {
 	@OneToMany(mappedBy="listing")
 	private List<Calendar> calendars;
 
+	//bi-directional many-to-one association to ListingPic
+	@OneToMany(mappedBy="listing")
+	private List<ListingPic> listingPics;
+
 	//bi-directional many-to-one association to Location
 	@ManyToOne
 	@JoinColumn(name="location_id", nullable=false)
@@ -73,10 +77,6 @@ public class Listing implements Serializable {
 	//bi-directional one-to-one association to UsableSpace
 	@OneToOne(mappedBy="listing")
 	private UsableSpace usableSpace;
-
-	//bi-directional many-to-one association to ListingPic
-	@OneToMany(mappedBy="listing")
-	private List<ListingPic> listingPics;
 
 	public Listing() {
 	}
@@ -205,6 +205,28 @@ public class Listing implements Serializable {
 		return calendar;
 	}
 
+	public List<ListingPic> getListingPics() {
+		return this.listingPics;
+	}
+
+	public void setListingPics(List<ListingPic> listingPics) {
+		this.listingPics = listingPics;
+	}
+
+	public ListingPic addListingPic(ListingPic listingPic) {
+		getListingPics().add(listingPic);
+		listingPic.setListing(this);
+
+		return listingPic;
+	}
+
+	public ListingPic removeListingPic(ListingPic listingPic) {
+		getListingPics().remove(listingPic);
+		listingPic.setListing(null);
+
+		return listingPic;
+	}
+
 	public Location getLocation() {
 		return this.location;
 	}
@@ -249,28 +271,6 @@ public class Listing implements Serializable {
 
 	public void setUsableSpace(UsableSpace usableSpace) {
 		this.usableSpace = usableSpace;
-	}
-
-	public List<ListingPic> getListingPics() {
-		return this.listingPics;
-	}
-
-	public void setListingPics(List<ListingPic> listingPics) {
-		this.listingPics = listingPics;
-	}
-
-	public ListingPic addListingPic(ListingPic listingPic) {
-		getListingPics().add(listingPic);
-		listingPic.setListing(this);
-
-		return listingPic;
-	}
-
-	public ListingPic removeListingPic(ListingPic listingPic) {
-		getListingPics().remove(listingPic);
-		listingPic.setListing(null);
-
-		return listingPic;
 	}
 
 }
