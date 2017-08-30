@@ -21,20 +21,21 @@
   		<h:form styleClass="login-form animate">
 
     		<div class="loginflex">
-    		     <h:outputLabel for="uname" styleClass="login-field"><b>Username</b></h:outputLabel>
+    		     <h:outputLabel for="uname"><b>Username</b></h:outputLabel>
       			<h:inputText id="uname" class="login-field" value="#{user.username}" required="true"/>
 
-      			<h:outputLabel for="pass" styleClass="login-field"><b>Password</b></h:outputLabel>
+      			<h:outputLabel for="pass"><b>Password</b></h:outputLabel>
       			<h:inputSecret id="pass" styleClass="login-field" value="#{user.password}" required="true"/>
       			
-    			<h:outputLabel for="fname" styleClass="login-field"><b>First Name</b></h:outputLabel>
+    			<h:outputLabel for="fname"><b>First Name</b></h:outputLabel>
       			<h:inputText id="fname" class="login-field" value="#{user.firstName}" required="true"/>
       			
-      			<h:outputLabel for="lname" styleClass="login-field"><b>Last Name</b></h:outputLabel>
+      			<h:outputLabel for="lname"><b>Last Name</b></h:outputLabel>
       			<h:inputText id="lname" class="login-field" value="#{user.lastName}" required="true"/>
       			
-      			<h:outputLabel for="phone" styleClass="login-field"><b>Last Name</b></h:outputLabel>
+      			<h:outputLabel for="phone"><b>Last Name</b></h:outputLabel>
       			<h:inputText id="phone" class="login-field" value="#{user.phoneNum}" required="true"/>
+      			
       			<p:outputLabel for="selectBooleanCheckbox" value="" />
     			<p:selectBooleanCheckbox id="selectBooleanCheckbox" itemLabel="I want to be a host"/>
 
