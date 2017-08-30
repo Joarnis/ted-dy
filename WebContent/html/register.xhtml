@@ -39,8 +39,8 @@
       			<h:outputLabel for="phone"><b>Last Name</b></h:outputLabel>
       			<h:inputText id="phone" class="login-field" value="#{user.phoneNum}" required="true"/>
       			
-      			<p:outputLabel for="selectBooleanCheckbox" value="" />
-    			<p:selectBooleanCheckbox id="selectBooleanCheckbox" itemLabel="I want to be a host"/>
+    			<p:selectBooleanCheckbox id="selectBooleanCheckbox" itemLabel="I want to be a host"
+    			value="#{user.isHost}"/>
 
      			<h:commandButton styleClass="genbutton" value="Register" action="#{nav.register()}"/>
      			<h:button styleClass="genbutton" value="Cancel" outcome="/index?faces-redirect=true" />
