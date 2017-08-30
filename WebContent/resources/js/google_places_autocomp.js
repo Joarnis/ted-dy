@@ -69,7 +69,7 @@ function initAutocomplete() {
     	    	return node.offsetParent != null;
     	    });
     	    // If it's so - preventDefault
-    	    if (googleDOMNodeIsVisible) 
+    	    if (googleDOMNodeIsVisible)
     	    	e.preventDefault();
     	}
     });*/

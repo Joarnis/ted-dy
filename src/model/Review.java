@@ -1,4 +1,4 @@
-package model;
+package bean;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -16,13 +16,15 @@ public class Review implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(unique=true, nullable=false)
 	private int id;
 
 	@Temporal(TemporalType.DATE)
 	@Column(nullable=false)
 	private Date date;
+
+	@Column(nullable=false)
+	private int rating;
 
 	@Column(name="reviewer_name", nullable=false, length=45)
 	private String reviewerName;
@@ -57,6 +59,14 @@ public class Review implements Serializable {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public int getRating() {
+		return this.rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
 	}
 
 	public String getReviewerName() {

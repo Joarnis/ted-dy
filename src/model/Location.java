@@ -1,4 +1,4 @@
-package model;
+package bean;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -16,7 +16,6 @@ public class Location implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(unique=true, nullable=false)
 	private int id;
 
@@ -25,6 +24,9 @@ public class Location implements Serializable {
 
 	@Column(nullable=false, length=45)
 	private String country;
+
+	@Column(length=45)
+	private String district;
 
 	@Column(name="house_no")
 	private short houseNo;
@@ -76,6 +78,14 @@ public class Location implements Serializable {
 
 	public void setCountry(String country) {
 		this.country = country;
+	}
+
+	public String getDistrict() {
+		return this.district;
+	}
+
+	public void setDistrict(String district) {
+		this.district = district;
 	}
 
 	public short getHouseNo() {
