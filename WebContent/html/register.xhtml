@@ -19,16 +19,20 @@
 
  		<!-- Modal Content -->
   		<h:form styleClass="login-form animate">
-  		<!-- <p:growl id="msg" /> -->
+  		<!-- <p:messages id="errormsg" /> -->
 
     		<div class="loginflex">
-    		     <h:outputLabel for="uname"><b>Username</b></h:outputLabel>
+    		    <h:outputLabel for="uname"><b>Username</b></h:outputLabel>
       			<h:inputText id="uname" class="login-field" value="#{user.username}" required="true">
      				<!-- <p:ajax update="msg" listener="" /> -->
       			</h:inputText>
 
       			<h:outputLabel for="pass"><b>Password</b></h:outputLabel>
-      			<h:inputSecret id="pass" styleClass="login-field" value="#{user.password}" required="true"/>
+      			<h:inputSecret id="pass" styleClass="login-field" value="#{user.password}" required="true">
+      				<f:validateLength minimum="2" />
+      				<p:ajax update="msgLastname" event="keyup" />
+      			</h:inputSecret>
+      			<p:message for="pass" id="msgLastname" display="icon" />
       			
     			<h:outputLabel for="fname"><b>First Name</b></h:outputLabel>
       			<h:inputText id="fname" class="login-field" value="#{user.firstName}" required="true"/>
