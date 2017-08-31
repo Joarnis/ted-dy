@@ -1,10 +1,10 @@
 package bean;
 import model.Listing;import model.Location;import java.util.List;import java.text.SimpleDateFormat;import java.util.Date;import javax.faces.application.FacesMessage;import javax.faces.context.FacesContext;import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.persistence.Column;import dao.MainDAO;import org.primefaces.context.RequestContext;import org.primefaces.event.SelectEvent;
 @ManagedBean(name="main", eager=true)
-@SessionScoped
+@ViewScoped
 public class MainBean {
   private String mainstr;  private String country;  private String locality;  private String premise;  private String route;  private String street_number;  private String postal_code;  private String out_str;  private Date date_from;  private Date date_to;  private Date min_date_to;    @ManagedProperty(value="#{mainDAO}")  private MainDAO mainDAO;  public void setMainstr(String mainstr) {	  this.mainstr = mainstr;  }  public String getMainstr() {	  return mainstr;  }  
   public void setCountry(String country) {

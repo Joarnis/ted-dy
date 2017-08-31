@@ -19,6 +19,7 @@
 </h:head>
 
 <h:body>
+	<ui:include src="navbar.xhtml" />
 
 
 
@@ -27,32 +28,6 @@
 
 
 
-
-
-
-<img src="../resources/img/magia.png" ></img>
-
-	
-	
-<p:dataGrid var="car" columns="2" layout="grid"
-	rows="12" paginator="true" id="cars"
-        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-        rowsPerPageTemplate="6,12,16">
- 
-        <f:facet name="header">
-            Cars for Sale
-        </f:facet>
- 
-        <p:panel header="aaaaa" style="text-align:center">
-            <h:panelGrid columns="1" style="width:100%">
-                <p:graphicImage name="../resources/img/magia.png"/> 
- 
-                <h:outputText value="#yyyyyyy" />
- 
-            </h:panelGrid>
-        </p:panel>
-
-    </p:dataGrid>
 
 
 
