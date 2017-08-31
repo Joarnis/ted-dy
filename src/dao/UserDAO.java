@@ -69,4 +69,31 @@ public class UserDAO {
 		return user;
 
 	}
+	
+	@SuppressWarnings("unchecked")
+	public boolean find(String username) {
+		boolean result = false;
+		
+		EntityManager em = jpaResourceBean.getEMF().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+
+		Query q = em.createQuery("Select u from User u where u.username = :username");
+		q.setParameter("username", username);
+		List<User> users = q.getResultList();
+		tx.commit();
+		em.close();
+		/*result = q.getResultList().size()==0 ? false : true;*/
+		if (users == null) {
+			return false;
+		}
+		else {
+			if (users.size()==0)
+				return false;
+			else
+				return true;
+		}
+
+		/*return result;*/
+	}
 }
