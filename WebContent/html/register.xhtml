@@ -19,14 +19,14 @@
 
  		<!-- Modal Content -->
   		<h:form styleClass="login-form animate">
-  		<!-- <p:growl id="errormsg" /> -->
+  			<p:growl id="errormsg" />
 
     		<div class="loginflex">
     		
     		    <h:outputLabel for="uname" styleClass="login-label"><b>Username</b></h:outputLabel>
       			<h:inputText id="uname" class="login-field" value="#{user.username}" required="true"
-      			requiredMessage="Please enter a username">
-     				<!-- <p:ajax update="msg" listener="" /> -->
+      			requiredMessage="Please enter a username" validator="#{user.validate_username}">
+     				<p:ajax update="msguname" event="keyup"/>
       			</h:inputText>
       			<p:message for="uname" id="msguname" />
 

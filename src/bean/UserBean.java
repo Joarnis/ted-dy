@@ -2,6 +2,8 @@ package bean;
 
 import model.User;
 import dao.UserDAO;
+import javax.faces.validator.ValidatorException;
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -140,5 +142,14 @@ public class UserBean {
 	
 	public void validatepass() {
 		FacesContext.getCurrentInstance().addMessage("msgpass", new FacesMessage("Welcome Kon"));
+	}
+	
+	public void validate_username(FacesContext context, UIComponent component, Object value) throws ValidatorException {
+		boolean existing = userDAO.find(username);
+		String msg = "Username already exists";
+		if (existing == true) {
+			throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, msg));
+			/*FacesContext.getCurrentInstance().addMessage("errormsg", new FacesMessage("Username already exists"));*/
+		}
 	}
 }
