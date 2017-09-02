@@ -96,4 +96,25 @@ public class UserDAO {
 
 		/*return result;*/
 	}
+	
+	
+	/*SUGGESTION 
+	 @SuppressWarnings("unchecked")
+		public int count_users(String username, String passhash) {
+			User user = null;
+
+			EntityManager em = jpaResourceBean.getEMF().createEntityManager();
+			EntityTransaction tx = em.getTransaction();
+			tx.begin();
+
+			Query q = em.createQuery("Select u from User u where u.username = :username");
+			q.setParameter("username", username);
+			List<User> users = q.getResultList();
+			tx.commit();
+			em.close();
+
+			return users.size();
+
+		}
+	 */
 }
