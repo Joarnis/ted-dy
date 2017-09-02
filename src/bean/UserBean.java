@@ -155,9 +155,9 @@ public class UserBean {
 	
 	/*SUGGESTION
 	public void validate_username(FacesContext context, UIComponent component, Object value) throws ValidatorException {
-		int existing = userDAO.find(username);
+		int existing = userDAO.count_users(username);
 		
-		if (existing == true) {
+		if (existing) {
 			String msg = "Username already exists";
 			throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, msg));
 			/*FacesContext.getCurrentInstance().addMessage("errormsg", new FacesMessage("Username already exists"));*/
