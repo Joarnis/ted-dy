@@ -5,3 +5,7 @@ body {
 	/*  background-image: url("../img/New-York.jpg");
 	 background-size: 1200px 720px; */
 }
+
+input {
+  border: 1px solid #CCC;
+}

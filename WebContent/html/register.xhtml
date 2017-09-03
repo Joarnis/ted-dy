@@ -6,9 +6,10 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>Please Login</title>
+	<meta charset="utf-8"/>
+	<title>Please Register</title>
 	<link href="../resources/css/general.css" rel="stylesheet"/>
-	<link href="../resources/css/navbar.css" rel="stylesheet"> </link>
+	<link href="../resources/css/navbar.css" rel="stylesheet"/>
 </h:head>
 <h:body>
 	<ui:include src="navbar.xhtml" />
@@ -53,7 +54,7 @@
       			<h:inputText id="phone" styleClass="login-field" value="#{user.phoneNum}" required="true"
       			requiredMessage="Please enter your phone number"/>
       			<p:message for="phone" id="msgphone" />
-      			
+      				
     			<p:selectBooleanCheckbox id="selectBooleanCheckbox" itemLabel="I want to be a host"
     			value="#{user.isHost}"/>
 
