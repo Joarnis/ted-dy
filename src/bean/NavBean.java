@@ -90,8 +90,7 @@ public class NavBean {
 		FacesContext context = FacesContext.getCurrentInstance();
 		/*pass control to user bean for login*/
 		//for the time being registration is inactive
-		String status = "ok";
-		/*String status = user.registerUser();*/
+		String status = user.registerUser();
 		
 		/*check if insert was successful to proceed*/
 		if (status.equals("ok")) {

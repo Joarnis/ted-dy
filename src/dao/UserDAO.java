@@ -28,7 +28,7 @@ public class UserDAO {
 	}
 	
 	public String insertUser(User user) {
-		String retMessage = "error";
+		String retMessage;
 		EntityManager em = jpaResourceBean.getEMF().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
@@ -67,7 +67,6 @@ public class UserDAO {
 		}
 
 		return user;
-
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -93,7 +92,6 @@ public class UserDAO {
 			else
 				return true;
 		}
-
 		/*return result;*/
 	}
 }
