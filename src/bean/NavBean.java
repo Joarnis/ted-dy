@@ -94,11 +94,9 @@ public class NavBean {
 		
 		/*check if insert was successful to proceed*/
 		if (status.equals("ok")) {
-			
 		}
 		else
 		{
-			
 		}
 		return "/index?faces-redirect=true";
 	}

@@ -27,6 +27,11 @@
      				<p:ajax update="msguname" event="keyup"/>
       			</h:inputText>
       			<p:message for="uname" id="msguname" />
+      			
+      			<h:outputLabel for="email" styleClass="login-label"><b>E-mail</b></h:outputLabel>
+      			<h:inputText id="email" styleClass="login-field" value="#{user.email}" required="true"
+      			requiredMessage="Please enter your e-mail"/>
+      			<p:message for="email" id="msgemail" />
 
       			<h:outputLabel for="pass" styleClass="login-label"><b>Password</b></h:outputLabel>
       			<h:inputSecret id="pass" styleClass="login-field" value="#{user.password}" required="true"
