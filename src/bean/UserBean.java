@@ -145,23 +145,11 @@ public class UserBean {
 	}
 	
 	public void validate_username(FacesContext context, UIComponent component, Object value) throws ValidatorException {
-		boolean existing = userDAO.find(username);
+		boolean existing = userDAO.find((String)value);
 		String msg = "Username already exists";
 		if (existing == true) {
 			throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, msg));
 			/*FacesContext.getCurrentInstance().addMessage("errormsg", new FacesMessage("Username already exists"));*/
 		}
 	}
-	
-	/*SUGGESTION
-	public void validate_username(FacesContext context, UIComponent component, Object value) throws ValidatorException {
-		int existing = userDAO.count_users(username);
-		
-		if (existing) {
-			String msg = "Username already exists";
-			throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, msg));
-			/*FacesContext.getCurrentInstance().addMessage("errormsg", new FacesMessage("Username already exists"));*/
-		/*}
-	}
-	*/
 }
