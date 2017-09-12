@@ -71,7 +71,6 @@ public class UserDAO {
 	
 	@SuppressWarnings("unchecked")
 	public boolean find(String username) {
-		boolean result = false;
 		
 		EntityManager em = jpaResourceBean.getEMF().createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -82,16 +81,8 @@ public class UserDAO {
 		List<User> users = q.getResultList();
 		tx.commit();
 		em.close();
-		/*result = q.getResultList().size()==0 ? false : true;*/
-		if (users == null) {
-			return false;
-		}
-		else {
-			if (users.size()==0)
-				return false;
-			else
-				return true;
-		}
-		/*return result;*/
+		if (users != null && users.size() != 0)
+			return true;
+		return false;
 	}
 }

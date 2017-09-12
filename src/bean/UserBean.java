@@ -16,11 +16,11 @@ import org.apache.commons.codec.digest.DigestUtils;
 @SessionScoped
 public class UserBean {
 	
-	private int id;
+	/*private int id;*/
 	private String email;
 	private String firstName;
 	private boolean isHost;
-	private byte isVerified;
+	/*private byte isVerified;*/
 	private String lastName;
 	private String password;
 	private String phoneNum;
@@ -137,7 +137,7 @@ public class UserBean {
 	/*these methods are for the actual user logged in*/
 	public String real_username()
 	{
-		return current.getUsername();
+		return current.getFirstName();
 	}
 	
 	public void validatepass() {
@@ -149,7 +149,6 @@ public class UserBean {
 		String msg = "Username already exists";
 		if (existing == true) {
 			throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, msg));
-			/*FacesContext.getCurrentInstance().addMessage("errormsg", new FacesMessage("Username already exists"));*/
 		}
 	}
 }
