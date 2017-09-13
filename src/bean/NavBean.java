@@ -69,7 +69,8 @@ public class NavBean {
 		}
 		else {
 			//edit profile
-			return "";
+			user.populate_from_current();
+			return "html/edit_profile?faces-redirect=true";
 		}
 	}
 
@@ -79,7 +80,10 @@ public class NavBean {
 			return "html/login?faces-redirect=true";
 		}
 		else {
-			logout();
+			login_logout = "Login";
+			reg_edit = "Register";
+			emptyHellomessage();
+			FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 			return "/index?faces-redirect=true";
 		}
 		
@@ -87,12 +91,21 @@ public class NavBean {
 	
 	/*the methods below determine the behavior when a login/register form is submitted*/
 	public String register() {
-		FacesContext context = FacesContext.getCurrentInstance();
 		/*pass control to user bean for login*/
-		//for the time being registration is inactive
 		String status = user.registerUser();
 		
 		/*check if insert was successful to proceed*/
+		if (status.equals("ok")) {
+		}
+		else
+		{
+		}
+		return "/index?faces-redirect=true";
+	}
+	
+	public String edit_profile() {
+		String status = user.editUser();
+		
 		if (status.equals("ok")) {
 		}
 		else
@@ -118,14 +131,5 @@ public class NavBean {
 			context.addMessage(null, new FacesMessage(error));
 		}
 		return "/index?faces-redirect=true";
-	}
-	
-	//this method is invoked directly from the login_logout button
-	public void logout() {
-		user.logoutUser();	//session is invalidated here
-		login_logout = "Login";
-		reg_edit = "Register";
-		emptyHellomessage();
-	}
-	
+	}	
 }

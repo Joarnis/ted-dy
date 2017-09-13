@@ -47,6 +47,24 @@ public class UserDAO {
 		}
 	}
 	
+	public String editUser(User user) {
+		deleteUser(user.getId());
+		String status = insertUser(user);
+		return status;
+	}
+	
+	public void deleteUser(int id) {
+		EntityManager em = jpaResourceBean.getEMF().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+
+		Query q = em.createQuery("Delete from User u where u.id = :id");
+		q.setParameter("id", id);
+		q.executeUpdate();
+		tx.commit();
+		em.close();
+	}
+	
 	@SuppressWarnings("unchecked")
 	public User find(String username, String passhash) {
 		User user = null;

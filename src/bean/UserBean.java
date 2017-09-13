@@ -16,11 +16,11 @@ import org.apache.commons.codec.digest.DigestUtils;
 @SessionScoped
 public class UserBean {
 	
-	/*private int id;*/
+	private int id;
 	private String email;
 	private String firstName;
 	private boolean isHost;
-	/*private byte isVerified;*/
+	private byte isVerified;
 	private String lastName;
 	private String password;
 	private String phoneNum;
@@ -30,6 +30,14 @@ public class UserBean {
 	
 	@ManagedProperty(value="#{userDAO}")
     private UserDAO userDAO;
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public int getId() {
+		return id;
+	}
 	
 	public void setEmail(String email) {
 		this.email = email;
@@ -97,7 +105,6 @@ public class UserBean {
 	
 	public String registerUser()
 	{
-		//FacesContext context = FacesContext.getCurrentInstance();
 		User user = new User();
 
 		user.setFirstName(firstName);
@@ -112,7 +119,23 @@ public class UserBean {
 		user.setPasshash(passhash);
 		//dao goes here
 		return userDAO.insertUser(user);
-		/*return message;*/
+	}
+	
+	public String editUser() {
+		User user = new User();
+		
+		user.setId(id);
+		user.setFirstName(firstName);
+		user.setEmail(email);
+		user.setIsHost((byte)(isHost ? 1:0));
+		user.setIsVerified(isVerified);
+		user.setLastName(lastName);
+		user.setPhoneNum(phoneNum);
+		user.setUsername(username);
+		//compute hash
+		String passhash = DigestUtils.sha512Hex(password);
+		user.setPasshash(passhash);
+		return userDAO.editUser(user);
 	}
 	
 	public String loginUser() {
@@ -125,11 +148,6 @@ public class UserBean {
 			return "ok";
 	}
 	
-	public String logoutUser() {
-		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-		return "/index?faces-redirect=true";
-	}
-	
 	public boolean isLoggedIn() {
         return current != null;
     } 
@@ -140,15 +158,25 @@ public class UserBean {
 		return current.getFirstName();
 	}
 	
-	public void validatepass() {
-		FacesContext.getCurrentInstance().addMessage("msgpass", new FacesMessage("Welcome Kon"));
-	}
-	
 	public void validate_username(FacesContext context, UIComponent component, Object value) throws ValidatorException {
 		boolean existing = userDAO.find((String)value);
+		if (isLoggedIn())
+			existing = existing && !((String)value).equals(current.getUsername());
+		
 		String msg = "Username already exists";
 		if (existing == true) {
 			throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, msg));
 		}
+	}
+	
+	public void populate_from_current() {
+		id = current.getId();
+		email = current.getEmail();
+		firstName = current.getFirstName();
+		isHost = current.getIsHost()==1 ? true : false;
+		isVerified = current.getIsVerified();
+		lastName = current.getLastName();
+		phoneNum = current.getPhoneNum();
+		username = current.getUsername();
 	}
 }

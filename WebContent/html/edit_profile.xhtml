@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="utf-8"/>
+	<title>Edit your Profile</title>
+	<link href="../resources/css/general.css" rel="stylesheet"/>
+	<link href="../resources/css/navbar.css" rel="stylesheet"/>
+</h:head>
+<h:body>
+	<ui:include src="navbar.xhtml" />
+	
+	<div id="login" class="login">
+
+  		<h:form styleClass="login-form animate">
+  			<p:growl id="errormsg" />
+
+    		<div class="loginflex">
+    		
+    			<h:outputLabel for="id" styleClass="login-label"><b>Last Name</b></h:outputLabel>
+      			<h:inputText id="id" styleClass="login-field" value="#{user.id}" required="true"
+      			requiredMessage="Please enter your last name"/>
+      			<p:message for="id" id="msgid" /> 
+    		
+    		    <h:outputLabel for="uname" styleClass="login-label"><b>Username</b></h:outputLabel>
+      			<h:inputText id="uname" class="login-field" value="#{user.username}" required="true"
+      			requiredMessage="Please enter a username" validator="#{user.validate_username}">
+     				<p:ajax update="msguname" event="keyup"/>
+      			</h:inputText>
+      			<p:message for="uname" id="msguname" />
+      			
+      			<h:outputLabel for="email" styleClass="login-label"><b>E-mail</b></h:outputLabel>
+      			<h:inputText id="email" styleClass="login-field" value="#{user.email}" required="true"
+      			requiredMessage="Please enter your e-mail"/>
+      			<p:message for="email" id="msgemail" />
+
+      			<h:outputLabel for="pass" styleClass="login-label"><b>Password</b></h:outputLabel>
+      			<h:inputSecret id="pass" styleClass="login-field" value="#{user.password}" required="true"
+      			requiredMessage="Please enter a password" 
+      			validatorMessage="Your password should be at least 5 characters long">
+      				<f:validateLength minimum="5" />
+      				<p:ajax update="msgpass" event="keyup"/>
+      			</h:inputSecret>
+      			<p:message for="pass" id="msgpass" />
+      			
+    			<h:outputLabel for="fname" styleClass="login-label"><b>First Name</b></h:outputLabel>
+      			<h:inputText id="fname" styleClass="login-field" value="#{user.firstName}" required="true"
+      			requiredMessage="Please enter your name"/>
+      			<p:message for="fname" id="msgfname" />
+      			
+      			<h:outputLabel for="lname" styleClass="login-label"><b>Last Name</b></h:outputLabel>
+      			<h:inputText id="lname" styleClass="login-field" value="#{user.lastName}" required="true"
+      			requiredMessage="Please enter your last name"/>
+      			<p:message for="lname" id="msglname" />      			
+      			
+      			<h:outputLabel for="phone" styleClass="login-label"><b>Phone Number</b></h:outputLabel>
+      			<h:inputText id="phone" styleClass="login-field" value="#{user.phoneNum}" required="true"
+      			requiredMessage="Please enter your phone number"/>
+      			<p:message for="phone" id="msgphone" />
+      				
+    			<p:selectBooleanCheckbox id="selectBooleanCheckbox" itemLabel="I want to be a host"
+    			value="#{user.isHost}"/>
+
+     			<h:commandButton styleClass="genbutton" value="Register" action="#{nav.edit_profile()}"/>
+     			<h:button styleClass="genbutton" value="Cancel" outcome="/index?faces-redirect=true" />
+     			
+    		</div>
+  		</h:form>
+	</div>
+</h:body>
+</html>
